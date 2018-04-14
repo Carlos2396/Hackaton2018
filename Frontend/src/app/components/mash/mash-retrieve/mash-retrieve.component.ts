@@ -127,14 +127,22 @@ export class MashRetrieveComponent implements OnInit {
 
   playAll(){
     
-    console.log("Playing");
-    var audio1 = new Pz.Sound('../../../assets/music/bensound-cute.mp3', function(){
-      var audio2 = new Pz.Sound('../../../../../assets/music/bensound-jazzyfrenchy.mp3', function(){
-        var group = new Pz.Group();
+    var audio1 = new Pz.Sound('../../../assets/music/Bajo.mp3', function(){
+      var audio2 = new Pz.Sound('../../../../../assets/music/Bateria.mp3', function(){
+        var audio3 = new Pz.Sound('../../../../../assets/music/Guitarra.mp3', function(){
+          var audio4 = new Pz.Sound('../../../../../assets/music/Trompeta.mp3', function(){
+            var audio5 = new Pz.Sound('../../../../../assets/music/Violines.mp3', function(){
+              var group = new Pz.Group();
         
-        group.addSound(audio1);
-        group.addSound(audio2);
-        group.play();
+              group.addSound(audio1);
+              group.addSound(audio2);
+              group.addSound(audio3);
+              group.addSound(audio4);
+              group.addSound(audio5);
+              group.play();
+            });
+          });
+        });
       });
     });
     
