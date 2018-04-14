@@ -9,6 +9,7 @@ export class User {
         public name: string,
         public email: string,
         public birthdate: string,
+        public password: string,
         public snippets?: Snippet[],
         public mashes?: Mash[],
         public rounds?: Round[],

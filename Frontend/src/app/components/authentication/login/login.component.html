@@ -4,13 +4,32 @@
     <div class="container">
         <div class="col-md-4 content-center">
             <div class="card card-login card-plain">
-                <div *ngIf="message" class="alert alert-danger">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <i class="material-icons">close</i>
-                    </button>
-                    <span>
-                        <b> Error</b> {{message}}</span>
-                </div>
+                <div class="alert alert-success" role="alert" *ngIf="successMessage != ''">
+                    <div class="container">
+                        <div class="alert-icon">
+                            <i class="now-ui-icons ui-2_like"></i>
+                        </div>
+                        <strong>{{successMessage}}</strong> 
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">
+                                <i class="now-ui-icons ui-1_simple-remove"></i>
+                            </span>
+                        </button>
+                    </div>
+                  </div>
+                  <div class="alert alert-danger" role="alert" *ngIf="errorMessage != ''">
+                    <div class="container">
+                        <div class="alert-icon">
+                            <i class="now-ui-icons objects_support-17"></i>
+                        </div>
+                        <strong>{{errorMessage}}</strong> 
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">
+                                <i class="now-ui-icons ui-1_simple-remove"></i>
+                            </span>
+                        </button>
+                    </div>
+                  </div>
                 <form class="form" (submit)="login()">
                     <div class="header header-primary text-center">
                         <div class="logo-container">

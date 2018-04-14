@@ -47,7 +47,7 @@ export class AuthService {
 
   // Returns true if the the token exists and has not expired
   isLoggedIn(){
-    return JSON.parse(localStorage.getItem('member')) ? true:false;
+    return JSON.parse(localStorage.getItem('member')).exists ? true:false;
     //return moment().isBefore(this.getExpiration());
   }
 

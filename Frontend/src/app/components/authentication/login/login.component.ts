@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  message:string;
+  successMessage:string;
+  errorMessage:string;
   email: string;
   password: string;
   constructor(private auth:AuthService, private router:Router) { }
@@ -21,6 +22,8 @@ export class LoginComponent implements OnInit {
 
     this.email = '';
     this.password = '';
+    this.successMessage = '';
+    this.errorMessage = '';
   }
 
   login(){
@@ -32,7 +35,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['home']);
         },
         err => {
-          this.message = err.error.message;
+          this.errorMessage = err.error.message;
           this.password = '';
         }
       );
@@ -43,11 +46,11 @@ export class LoginComponent implements OnInit {
 
   validate(){
     if(!this.email || !this.password){
-      this.message = 'Debes introducir tu email y contraseña.';
+      this.errorMessage = 'Debes introducir tu email y contraseña.';
       return false;
     }
     else{
-      this.message = '';
+      this.errorMessage = '';
       return true;
     }
   }
