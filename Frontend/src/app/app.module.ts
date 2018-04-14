@@ -16,6 +16,7 @@ import { LoginComponent } from './components/authentication/login/login.componen
 import { LandingComponent } from './components/landing/landing.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LogoutComponent } from './components/authentication/logout/logout.component';
+import { UserCreateComponent } from './components/user/user-create/user-create.component';
 
 
 
@@ -26,7 +27,8 @@ import { LogoutComponent } from './components/authentication/logout/logout.compo
     LoginComponent,
     LandingComponent,
     NavbarComponent,
-    LogoutComponent
+    LogoutComponent,
+    UserCreateComponent
   ],
   imports: [
     BrowserModule,
