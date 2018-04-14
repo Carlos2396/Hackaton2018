@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { User } from '../../../models/user.model';
+import { Snippet } from '../../../models/snippet.model';
+import { CrudService } from '../../../services/crud.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-mash-create',
@@ -8,6 +12,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./mash-create.component.css']
 })
 export class MashCreateComponent implements OnInit {
+
+  message: string;
+  user: User;
+  snippet: Snippet;
 
   constructor(private auth:AuthService, private router:Router) { }
 

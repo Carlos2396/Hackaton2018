@@ -58,10 +58,10 @@ export class SnippetCreateComponent implements OnInit {
       this.message = 'Debes escoger un instrumento';
       return false;
     }
-
-    if(!this.snippet.path){
-      this.message = 'Debes escoger un tempo';
-      return false;
+    else{
+      this.message = '';
+      console.log('Validado');
+      return true;
     }
   }
 
