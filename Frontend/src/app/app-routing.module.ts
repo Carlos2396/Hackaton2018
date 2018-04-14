@@ -14,16 +14,19 @@ import { MashRetrieveComponent } from './components/mash/mash-retrieve/mash-retr
 const routes: Routes = [
 
     // General
-    { path:'', component: LoginComponent},
+    { path:'login', component: LoginComponent},
     { path: 'register', component: UserCreateComponent},
-    { path: 'logout', component: LogoutComponent},
+    { path: 'logout', component: LogoutComponent, canActivate: [AuthGuard]},
 
 
     //Snippets
-    {path:'snippets/create', component: CreateSnippetComponent},
+    { path:'snippets/create', component: CreateSnippetComponent, canActivate: [AuthGuard]},
 
     //Mash
-    { path: 'mash/:id', component:MashRetrieveComponent},
+    { path: 'mash/:id', component:MashRetrieveComponent, canActivate: [AuthGuard]},
+
+    { path:'', redirectTo:'login', pathMatch: 'full'},
+    { path: '**', redirectTo: '' }
   ];
   
   @NgModule({

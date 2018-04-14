@@ -21,7 +21,9 @@ export class CrudService {
 
   constructor(private auth: AuthService, private http: HttpClient) { 
     this.URL = 'http://localhost:8000/api';
-    this.headers = new HttpHeaders();
+    this.headers = new HttpHeaders({
+      'content-type': 'application/json'
+    });
   }
 
   list(model: string) {

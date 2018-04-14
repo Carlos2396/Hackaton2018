@@ -4,32 +4,33 @@
     <div class="container">
         <div class="col-md-4 content-center">
             <div class="card card-login card-plain">
-                <div class="alert alert-success" role="alert" *ngIf="successMessage != ''">
+                <div class="alert alert-success" role="alert" *ngIf="successMessage">
                     <div class="container">
                         <div class="alert-icon">
                             <i class="now-ui-icons ui-2_like"></i>
                         </div>
-                        <strong>{{successMessage}}</strong> 
+                        <strong>{{successMessage}}</strong>
                         <button type="button" class="close" (click)="removeMessage()">
                             <span aria-hidden="true">
                                 <i class="now-ui-icons ui-1_simple-remove"></i>
                             </span>
                         </button>
                     </div>
-                  </div>
-                  <div class="alert alert-danger" role="alert" *ngIf="errorMessage != ''">
+                </div>
+                <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
                     <div class="container">
                         <div class="alert-icon">
                             <i class="now-ui-icons objects_support-17"></i>
                         </div>
-                        <strong>{{errorMessage}}</strong> 
+                        <strong>{{errorMessage}}</strong>
                         <button type="button" class="close" (click)="removeMessage()">
                             <span aria-hidden="true">
                                 <i class="now-ui-icons ui-1_simple-remove"></i>
                             </span>
                         </button>
                     </div>
-                  </div>
+                </div>
+
                 <form class="form" (submit)="login()">
                     <div class="header header-primary text-center">
                         <div class="logo-container">
@@ -42,13 +43,13 @@
                             <span class="input-group-addon">
                                 <i class="now-ui-icons users_circle-08"></i>
                             </span>
-                            <input type="text" class="form-control" placeholder="Correo electronico" id="email" name="email" [(ngModel)]="email">
+                            <input type="text" class="form-control text-white" placeholder="Correo electronico" id="email" name="email" [(ngModel)]="email">
                         </div>
                         <div class="input-group form-group-no-border input-lg">
                             <span class="input-group-addon">
                                 <i class="now-ui-icons text_caps-small"></i>
                             </span>
-                            <input type="text" placeholder="Contraseña" class="form-control" id="password" name="password" [(ngModel)]="password" />
+                            <input type="text" placeholder="Contraseña" class="form-control text-white" id="password" name="password" [(ngModel)]="password" />
                         </div>
                     </div>
                     <div class="footer text-center">

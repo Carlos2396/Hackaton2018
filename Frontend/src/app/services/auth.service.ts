@@ -4,10 +4,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class AuthService {
-  URL:string;
+  URL: string;
   headers: HttpHeaders;
 
-  constructor(private http:HttpClient) {
+  constructor(private http: HttpClient) {
     this.URL = 'http://localhost:8000/api';
     this.headers = new HttpHeaders({
       'Content-Type': 'application/json'
@@ -15,10 +15,9 @@ export class AuthService {
   }
 
   // Make the post request with the id and password provided, if successful, sets session data
-  login(id:string, password:string) {
-    let member;
+  login(id: string, password: string) {
     let body = {
-      member_id: id,
+      email: id,
       password: password
     }
 
@@ -26,52 +25,26 @@ export class AuthService {
       this.URL + '/login',
       body,
       { headers: this.headers }
-    );  
+    );
   }
 
   // Sets session data with the login response
-  setSession(res){
-    //const expiresAt = moment().add(res.expirationTime, 'second');
-     
-    //localStorage.setItem('token', res.token);
-    localStorage.setItem('member', JSON.stringify(res.member));
-    //localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
+  setSession(res) {
+    localStorage.setItem('user', JSON.stringify(res));
   }
 
   // Delete session data
-  logout(){
-    localStorage.removeItem('token');
-    localStorage.removeItem('member');
-    localStorage.removeItem('expires_at');
+  logout() {
+    let hola = localStorage.removeItem('user');
   }
 
   // Returns true if the the token exists and has not expired
-  isLoggedIn(){
-    return JSON.parse(localStorage.getItem('member')).exists ? true:false;
-    //return moment().isBefore(this.getExpiration());
+  isLoggedIn() {
+    return !(this.getUser() === null);
   }
-
-  isRoot(){
-    if(this.isLoggedIn()){
-      return this.getMember().system_role == "root";
-    }
-    else{
-      return false;
-    }
-  }
-
-  /*/ Get the moment expiration time
-  getExpiration(){
-    return moment(JSON.parse(localStorage.getItem('expires_at')));
-  }*/
 
   // get the logged in member
-  getMember(){
-    return JSON.parse(localStorage.getItem('member'))
+  getUser() {
+    return JSON.parse(localStorage.getItem('user'));
   }
-
-  getToken(){
-    return localStorage.getItem('token');
-}
-
 }
