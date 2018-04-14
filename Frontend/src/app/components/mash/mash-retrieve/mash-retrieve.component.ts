@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, group } from '@angular/core';
+import * as Pz from "pizzicato";
 import { CrudService } from '../../../services/crud.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { User } from '../../../models/user.model';
@@ -48,13 +49,11 @@ export class MashRetrieveComponent implements OnInit {
         this.rounds = this.mash.rounds;
         this.roundCount = this.rounds.length;
       },
-      (err:HttpErrorResponse) => {
-        if(err.error){
-          this.message = err.error.message;
-        }
-        else{
-          this.message = err.error.errors[0].message;
-        }
+      err => {
+        console.log(err);
+        Object.values(err.error).forEach( error => {
+          this.message = error[0];
+        });
       }
     )
   }
@@ -123,6 +122,21 @@ export class MashRetrieveComponent implements OnInit {
   }
 
   addSnippet(){
-    this.router.navigate(['mash/'+this.mash.rounds.length + '/snippet']);
+    this.router.navigate(['mash/'+this.mash.rounds[length].id + '/snippet']);
+  }
+
+  playAll(){
+    
+    console.log("Playing");
+    var audio1 = new Pz.Sound('../../../assets/music/bensound-cute.mp3', function(){
+      var audio2 = new Pz.Sound('../../../../../assets/music/bensound-jazzyfrenchy.mp3', function(){
+        var group = new Pz.Group();
+        
+        group.addSound(audio1);
+        group.addSound(audio2);
+        group.play();
+      });
+    });
+    
   }
 }

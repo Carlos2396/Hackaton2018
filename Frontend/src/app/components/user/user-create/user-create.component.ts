@@ -48,13 +48,11 @@ export class UserCreateComponent implements OnInit {
             this.successMessage = 'The registration was successful!';
             this.router.navigate(['/']);
           },
-          (err: HttpErrorResponse) => {
-            if (err.error) {
-              this.errorMessage = err.error.errorMessage;
-            }
-            else {
-              this.errorMessage = err.error.error[0].errorMessage;
-            }
+          err => {
+            console.log(err);
+            Object.values(err.error).forEach( error => {
+              this.errorMessage = error[0];
+            });
           }
         )
     }

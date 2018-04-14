@@ -37,14 +37,11 @@ export class MashSnippetCreateComponent implements OnInit {
         (res:any)=>{
           this.router.navigate(['mash']);
         },
-        (err:HttpErrorResponse) => {
+        err => {
           console.log(err);
-          if(err.error){
-            this.message = err.error.message;
-          }
-          else{
-            this.message = err.error.errors[0].message;
-          }
+          Object.values(err.error).forEach( error => {
+            this.message = error[0];
+          });
         }
       )
     }
