@@ -15,7 +15,7 @@ return [
      */
     S::KEY_SERVER_ORIGIN => [
         'scheme' => 'http',
-        'host'   => 'localhost',
+        'host'   => '10.50.116.130',
         'port'   => 8000,
     ],
 
@@ -26,7 +26,8 @@ return [
      * Environment variables could be used for enabling/disabling certain hosts.
      */
     S::KEY_ALLOWED_ORIGINS => [
-        //'http://localhost:4200' => true,
+        'http://10.50.121.109:4200' => true,
+        'http://10.50.121.109' => true,
         //'http://some.disabled.com' => null,
         // Enabling all origins might be insecure. Consider before using in production.
         S::VALUE_ALLOW_ORIGIN_ALL  => true,

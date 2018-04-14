@@ -48,6 +48,16 @@ class User extends Authenticatable
             ->withPivot('round_id');
     }
 
+    public function likeMash($mash_id){
+        $this->followedMashes()->attach($mash_id);
+        return $this->save();
+    }
+
+    public function removeLikeMash($mash_id){
+        $this->followedMashes()->detach($mash_id);
+        return $this->save();
+    }
+
     public function likeSnippetInRound($snippet_id, $round_id){
         return $this->likedSnippets()->attach([
             $snippet_id => ["round_id" => $round_id] 

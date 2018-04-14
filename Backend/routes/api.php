@@ -59,4 +59,15 @@ Route::group(['as' => 'api', 'namespace' => 'API'], function () {
     Route::post('mashes', 'MashController@store')->name('mashes.store');
     Route::put('mashes/{mash}', 'MashController@update')->name('mashes.update');
     Route::delete('mashes/{mash}', 'MashController@destroy')->name('mashes.delete');
+
+    // MashUser routes
+    Route::post('mash_user', 'MashUserController@store')->name('mash_user.store');
+    Route::post('mash_user/delete', 'MashUserController@delete')->name('mash_user.update');
+
+    //User vote for snippet in round
+    Route::post('round_user', 'MashUserController@store')->name('round_user.store');
+    Route::post('round_user/delete', 'MashUserController@delete')->name('round_user.update');
+
+    // Round snippet
+    Route::post('round_snippet', 'RoundSnippetController@store');
 });

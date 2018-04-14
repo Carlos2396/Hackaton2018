@@ -20,7 +20,7 @@ export class CrudService {
 };
 
   constructor(private auth: AuthService, private http: HttpClient) { 
-    this.URL = 'http://localhost:8000/api';
+    this.URL = 'http://10.50.116.130:8000/api';
     this.headers = new HttpHeaders({
       'content-type': 'application/json'
     });
@@ -36,14 +36,6 @@ export class CrudService {
   retrieve(model: string, id: any) {
     return this.http.get(
       this.URL + "/" + model + "/" + id,
-      { headers: this.headers }
-    );
-  }
-
-  registerUser(body:any) {
-    return this.http.post(
-      this.URL + "/" + this.models.USER,
-      body,
       { headers: this.headers }
     );
   }
@@ -67,6 +59,14 @@ export class CrudService {
   delete(model: string, id: any) {
     return this.http.delete(
       this.URL + "/" + model + "/" + id,
+      { headers: this.headers }
+    );
+  }
+
+  deletePivot(model:string, body:any){
+    return this.http.post(
+      this.URL + "/" + model + "/delete",
+      body,
       { headers: this.headers }
     );
   }
