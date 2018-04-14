@@ -29,30 +29,36 @@ export class MashRetrieveComponent implements OnInit {
 
   ngOnInit() {
     this.message = '';
+<<<<<<< HEAD
+    this.mash = new Mash(null, null, null, null,null,null,null,null,null,null,null,null);
+    this.mash.user =  new User(null,null, null,null, null, null);
+    this.roundCount = 0;
+=======
     this.mash = new Mash(null, null, null, null, null, null, null, null, null, null, null, null);
     this.mash.user = new User(null, null, null, null, null, null);
 
+>>>>>>> 2bf6ce9b9b3752fb36f1f2491acf0d1e493507d8
     this.id = parseInt(this.route.snapshot.paramMap.get("id"));
 
     console.log(this.auth.isLoggedIn());
 
     this.crud.retrieve(this.crud.models.MASH, this.id)
-      .subscribe(
-        (res: Mash) => {
-          console.log(res);
-          this.mash = res;
-          this.rounds = this.mash.rounds;
-          this.roundCount = this.rounds.length;
-        },
-        (err: HttpErrorResponse) => {
-          if (err.error) {
-            this.message = err.error.message;
-          }
-          else {
-            this.message = err.error.errors[0].message;
-          }
+    .subscribe(
+      (res:Mash)=>{
+        console.log(res);
+        this.mash = res;
+        this.rounds = this.mash.rounds;
+        this.roundCount = this.rounds.length;
+      },
+      (err:HttpErrorResponse) => {
+        if(err.error){
+          this.message = err.error.message;
         }
-      )
+        else{
+          this.message = err.error.errors[0].message;
+        }
+      }
+    )
   }
 
   askForView(id: number) {
@@ -65,10 +71,16 @@ export class MashRetrieveComponent implements OnInit {
     this.roundViewd = id;
   }
 
-  imShowing(id: number) {
-    return id == this.roundViewd;
+  imShowing(id: number){
+    if(id == this.roundViewd)
+      return true;
+    else{
+      return false;
+    }
+    
   }
-  removeMessage() {
+
+  removeMessage(){
     this.message = '';
   }
 }
