@@ -120,7 +120,7 @@
                                                                         {{project.begin_date}}
                                                                     </td>
                                                                     <td>
-                                                                            <button class="btn btn-primary btn-round" type="button">
+                                                                            <button class="btn btn-primary btn-round" type="button" onclick="playMusic()">
                                                                                     <i class="now-ui-icons media-1_button-play"></i>
                                                                                 </button>
                                                                     </td>
@@ -149,4 +149,13 @@
             </div>
         </div>
     </div>
+    <script>
+        function playMusic(){
+            var song1 = new Pz.Sound('../../../../assets/music/bensound-cute.mp3');
+
+            var group = new Pizzicato.Group([song1]);
+
+            group.play();
+        }
+    </script>
 </div>

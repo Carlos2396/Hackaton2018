@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if(this.auth.isLoggedIn()){
-      this.router.navigate(['mash/1'])
+      this.router.navigate(['mash'])
     }
 
     this.email = '';
