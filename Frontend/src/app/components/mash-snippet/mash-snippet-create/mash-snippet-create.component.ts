@@ -30,7 +30,7 @@ export class MashSnippetCreateComponent implements OnInit {
         round_id : this.round_id,
         snippet_id: this.snippet_id,
         start_time: this.start_time,
-        id: null
+        user_id: this.auth.getUser().id
       }
       this.crud.create(this.crud.models.ROUND_SNIPPET, body)
       .subscribe(
