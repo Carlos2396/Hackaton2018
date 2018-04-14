@@ -1,0 +1,37 @@
+<div class="page-header" filter-color="orange">
+    <div class="page-header-image" style="background-image:url(../assets/img/backgrounNegro.jpg)"></div>
+    <div class="container">
+        <div class="col-md-4 content-center">
+            <div class="card card-login card-plain">
+                <form class="form" method="" action="">
+                    <div class="content">
+                        <h2 class="title">Subir snippet</h2>
+                        <div class="input-group form-group-no-border input-lg">
+                            <input type="text" class="form-control" placeholder="Nombre del snippet" id="name" name="name" [(ngModel)]="snippet.name">
+                        </div>
+                        <div class="input-group form-group-no-border input-xl">
+                            <select class="form-control text-white" id="instrument_id" name="instrument_id" [(ngModel)]="snippet.instrument_id">
+                                <option selected>Instrumento</option>
+                                <ng-container *ngFor="let instrument of instruments" class="form-group">
+                                    <option value="{{instrument.id}}">{{instrument.name}}</option>
+                                </ng-container>
+                            </select>
+                        </div>
+                        <div class="input-group form-group-no-border input-lg">
+                            <input type="file" id="path" name="path" [(ngModel)]="snippet.path">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6"></div>
+                        <div class="col-md-3">
+                            <a href="#pablo" class="btn btn-danger btn-round btn-lg btn-block">Cancelar</a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="#pablo" class="btn btn-primary btn-round btn-lg btn-block">Aceptar</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
