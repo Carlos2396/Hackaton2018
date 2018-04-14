@@ -51,12 +51,7 @@ class UserController extends Controller
             'password' => bcrypt($request->password)
         ]);
 
-        if($user){
-            return response($user, 201);
-        }
-        else{
-            return response(["message" => "The user already exists."], 400);
-        }
+        return response($user, 201);
     }
 
     /**

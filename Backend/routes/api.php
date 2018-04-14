@@ -25,7 +25,12 @@ Route::group(['as' => 'api', 'namespace' => 'API'], function () {
     Route::put('users/{user}', 'UserController@update')->name('users.update');
     Route::delete('users/{user}', 'UserController@destroy')->name('users.delete');
 
-
+    // Users routes
+    Route::get('snippets', 'SnippetController@index')->name('snippets');
+    Route::get('snippets/{snippet}', 'SnippetController@show')->name('snippets.show');
+    Route::post('snippets', 'SnippetController@store')->name('snippets.store');
+    Route::put('snippets/{snippet}', 'SnippetController@update')->name('snippets.update');
+    Route::delete('snippets/{snippet}', 'SnippetController@destroy')->name('snippets.delete');
 });
 
 /*Route::middleware('auth:api')->get('/user', function (Request $request) {
