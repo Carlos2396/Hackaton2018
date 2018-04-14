@@ -10,11 +10,13 @@ import { AuthService } from './services/auth.service';
 
 //Components imports
 import { AppComponent } from './app.component';
+import { CreateSnippetComponent } from './components/snippet/create-snippet/create-snippet.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CreateSnippetComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="card-header card-header-primary">
+      <h4 class="card-title">¡Sube un snippet a Mash-up Music!</h4>
+      <p class="card-category">Ingresa los datos para crear un nuevo snippet.</p>
+  </div>
+  <div class="card-body">
+      <div *ngIf="message" class="alert alert-danger">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <i class="material-icons">close</i>
+          </button>
+          <span>
+              <b> Error</b> {{message}}</span>
+      </div>
+      <form (submit)="create()">
+          <div class="form-group">
+            <label class="bmd-label-floating" for="name">Nombre</label>
+            <input class="form-control" type="text" id="name" name="name" [(ngModel)]="snippet.name">
+          </div>
+          <div class="form-group">
+            <label class="bmd-label-floating" for="instrument_id">Scrum Master</label>
+            <select class="form-control" id="instrument_id" name="instrument_id" [(ngModel)]="snippet.instrument_id">
+                <option *ngFor="let instrument of instruments" value="{{instrument.id}}">{{instrument.name}} </option>
+            </select>
+        </div>
+          <button type="submit" class="btn btn-primary pull-right">Crear</button>
+          <button class="btn btn-danger pull-right" (click)="onSelectCancel()">Cancelar</button>
+          <div class="clearfix"></div>
+      </form>
+  </div>
+</div>
