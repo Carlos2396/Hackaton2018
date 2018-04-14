@@ -1,5 +1,5 @@
 <div class="page-header clear-filter " filter-color="black">
-    <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/header.jpg');">
+    <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/backgroundNegro.jpg');">
     </div>
     <div class="container">
         <div class="col-md-4 content-center">
@@ -26,12 +26,12 @@
                             <h4>Bpm: {{mash.bpm}} </h4>
                         </div>
                         <div class="col-md-4 content-center">
-                            <h4>Llave: {{mash.key}} </h4>
+                            <h4>Clave: {{mash.key}} </h4>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 content-center">
-                            <h4>Metrica: {{mash.metre}}</h4>
+                            <h4>Métrica: {{mash.metre}}</h4>
                         </div>
                         <div class="col-md-6 content-center">
                             <h4>Likes: {{mash.users.length}} </h4>
@@ -64,68 +64,74 @@
                             </button>
                         </h4>
                     </div>
-                    <div class="col-md-12 content-center"  *ngIf="imShowing(round.id)">
-                        <div class="row">
-                            <div class="col-md-12" >
-                                <div class="card card-login card-plain">
-                                    <div class="card-header card-header-primary">
-                                        <h4 class="card-title ">Ronda {{round.num}}</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead class=" text-primary">
-                                                    <th>
-                                                        Instrumento
-                                                    </th>
-                                                    <th>
-                                                        Usuario
-                                                    </th>
-                                                    <th>
-                                                        
-                                                    </th>
-                                                    <th>
-                                                    
-                                                    </th>
-                                                    <th>
-                                                    
-                                                    </th>
-                                                </thead>
-                                                <tbody>
-                                                    <tr *ngFor="let snipet of snippets">
-                                                        <td>
-                                                            {{snipet.instrument.name}}
-                                                        </td>
-                                                        <td>
-                                                            {{snipet.user.name}}
-                                                        </td>
-                                                        <td>
-                                                            {{project.begin_date}}
-                                                        </td>
-                                                        <td>
-                                                                <button class="btn btn-primary btn-round" type="button">
-                                                                        <i class="now-ui-icons media-1_button-play"></i>
-                                                                    </button>
-                                                        </td>
-                                                        <td>
-                                                                <button class="btn btn-primary btn-round" type="button">
-                                                                        <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-                                                                    </button>
-                                                        </td>
-                                                        <td>
-                                                                <button class="btn btn-info btn-round" type="button">
-                                                                        <i class="now-ui-icons ui-2_like"></i>
-                                                                    </button>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                    <ng-container *ngIf="imShowing(round.id); then rounds">
+
+                    </ng-container>
+                    <ng-template #rounds>
+                            <div class="col-md-12 content-center">
+                                    <div class="row">
+                                        <div class="col-md-12" >
+                                            <div class="card card-login card-plain">
+                                                <div class="card-header card-header-primary">
+                                                    <h4 class="card-title ">Ronda {{round.num}}</h4>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                            <thead class=" text-primary">
+                                                                <th>
+                                                                    Instrumento
+                                                                </th>
+                                                                <th>
+                                                                    Usuario
+                                                                </th>
+                                                                <th>
+                                                                    
+                                                                </th>
+                                                                <th>
+                                                                
+                                                                </th>
+                                                                <th>
+                                                                
+                                                                </th>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr *ngFor="let snipet of snippets">
+                                                                    <td>
+                                                                        {{snipet.instrument.name}}
+                                                                    </td>
+                                                                    <td>
+                                                                        {{snipet.user.name}}
+                                                                    </td>
+                                                                    <td>
+                                                                        {{project.begin_date}}
+                                                                    </td>
+                                                                    <td>
+                                                                            <button class="btn btn-primary btn-round" type="button">
+                                                                                    <i class="now-ui-icons media-1_button-play"></i>
+                                                                                </button>
+                                                                    </td>
+                                                                    <td>
+                                                                            <button class="btn btn-primary btn-round" type="button">
+                                                                                    <i class="now-ui-icons arrows-1_cloud-download-93"></i>
+                                                                                </button>
+                                                                    </td>
+                                                                    <td>
+                                                                            <button class="btn btn-info btn-round" type="button">
+                                                                                    <i class="now-ui-icons ui-2_like"></i>
+                                                                                </button>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                    </ng-template>
+                    
                 </div>
             </div>
         </div>
