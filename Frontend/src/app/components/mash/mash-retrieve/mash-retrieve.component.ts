@@ -121,4 +121,8 @@ export class MashRetrieveComponent implements OnInit {
     )
 
   }
+
+  addSnippet(){
+    this.router.navigate(['mash/'+this.mash.rounds.length + '/snippet']);
+  }
 }
