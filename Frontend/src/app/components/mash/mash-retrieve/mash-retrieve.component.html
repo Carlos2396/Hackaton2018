@@ -55,7 +55,7 @@
                 </div>
                 <div class="row" *ngFor="let round of rounds">
                     <div class="col-md-6 content-left">
-                        <h4>{{round.num}}
+                        <h4>Ronda número {{round.num}}
                             <button class="btn btn-primary btn-round btn-sm" type="button" (click)="askForView(round.id)" *ngIf="!imShowing(round.id)">
                                 <i class="now-ui-icons arrows-1_minimal-down"></i>
                             </button>
@@ -64,10 +64,10 @@
                             </button>
                         </h4>
                     </div>
-                    <div class="col-md-6 content-center"  *ngIf="imShowing(round.id)">
+                    <div class="col-md-12 content-center"  *ngIf="imShowing(round.id)">
                         <div class="row">
                             <div class="col-md-12" >
-                                <div class="card">
+                                <div class="card card-login card-plain">
                                     <div class="card-header card-header-primary">
                                         <h4 class="card-title ">Ronda {{round.num}}</h4>
                                     </div>
@@ -92,7 +92,7 @@
                                                     </th>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let snipet of snipets">
+                                                    <tr *ngFor="let snipet of snippets">
                                                         <td>
                                                             {{snipet.instrument.name}}
                                                         </td>
