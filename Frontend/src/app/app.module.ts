@@ -14,6 +14,9 @@ import { AppComponent } from './app.component';
 import { CreateSnippetComponent } from './components/snippet/create-snippet/create-snippet.component';
 import { LoginComponent } from './components/authentication/login/login.component';
 import { LandingComponent } from './components/landing/landing.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { LogoutComponent } from './components/authentication/logout/logout.component';
+
 
 
 @NgModule({
@@ -21,7 +24,9 @@ import { LandingComponent } from './components/landing/landing.component';
     AppComponent,
     CreateSnippetComponent,
     LoginComponent,
-    LandingComponent
+    LandingComponent,
+    NavbarComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
