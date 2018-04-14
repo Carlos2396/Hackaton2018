@@ -27,10 +27,10 @@ class CreateRoundsTable extends Migration
 
             $table->integer('user_id')->unsigned();
             $table->integer('round_id')->unsigned();
-            $table->integer('liked_snippet_id')->unsigned();
+            $table->integer('snippet_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('round_id')->references('id')->on('rounds')->onDelete('cascade');
-            $table->foreign('liked_snippet_id')->references('id')->on('snippets')->onDelete('cascade');
+            $table->foreign('snippet_id')->references('id')->on('snippets')->onDelete('cascade');
         });
 
         Schema::create('round_snippet', function (Blueprint $table) {

@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'birthdate'
     ];
 
     /**
@@ -26,4 +26,35 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Relations of User model
+     */
+    
+    public function mashes(){
+        return $this->hasMany('App\Mash');
+    }
+
+    public function snippets(){
+        return $this->hasMany('App\Snippet');
+    }
+
+    public function followedMashes(){
+        return $this->belongsToMany('App\Mash')->withTimestamps();
+    }
+
+    public function likedSnippets(){
+        return $this->belongsToMany('App\Snippet', 'round_user', 'user_id', 'snippet_id')
+            ->withPivot('round_id');
+    }
+
+    public function voteForSnippet($snippet_id, $round_id){
+        return $this->likedSnippets()->attach([
+            $snippet_id => ["round_id" => $round_id] 
+        ]);
+    }
+
+    public function unvoteForSnippet($snippet_id, $round_id){
+        return $this->likedSnippets()->detach($snippet_id);
+    }
 }
