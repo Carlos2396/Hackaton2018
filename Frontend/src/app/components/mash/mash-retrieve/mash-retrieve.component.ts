@@ -108,7 +108,7 @@ export class MashRetrieveComponent implements OnInit {
     .subscribe(
       (res)=>{
         console.log(res);
-        this.successMessage = 'You liked this mash succesfully'
+        this.successMessage = 'Le diste like sin errores'
       },
       (err:HttpErrorResponse) => {
         if(err.error){
