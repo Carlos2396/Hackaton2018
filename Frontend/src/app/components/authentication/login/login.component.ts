@@ -55,4 +55,9 @@ export class LoginComponent implements OnInit {
     }
   }
   
+  removeMessage(){
+    this.errorMessage = '';
+    this.successMessage = '';
+  }
+
 }
