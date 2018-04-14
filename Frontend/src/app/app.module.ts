@@ -7,16 +7,21 @@ import { FormsModule } from '@angular/forms';
 
 //Services imports
 import { AuthService } from './services/auth.service';
+import { CrudService } from './services/crud.service';
 
 //Components imports
 import { AppComponent } from './app.component';
 import { CreateSnippetComponent } from './components/snippet/create-snippet/create-snippet.component';
+import { LoginComponent } from './components/authentication/login/login.component';
+import { LandingComponent } from './components/landing/landing.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateSnippetComponent
+    LoginComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +30,8 @@ import { CreateSnippetComponent } from './components/snippet/create-snippet/crea
     FormsModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    CrudService
   ],
   bootstrap: [AppComponent]
 })
