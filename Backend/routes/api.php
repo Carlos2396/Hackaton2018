@@ -13,6 +13,21 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('', function() {
+    return "Mashup Music API";
 });
+
+Route::group(['as' => 'api', 'namespace' => 'API'], function () {
+    // Users routes
+    Route::get('users', 'UserController@index')->name('users');
+    Route::get('users/{user}', 'UserController@show')->name('users.show');
+    Route::post('users', 'UserController@store')->name('users.store');
+    Route::put('users/{user}', 'UserController@update')->name('users.update');
+    Route::delete('users/{user}', 'UserController@destroy')->name('users.delete');
+
+
+});
+
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});*/
