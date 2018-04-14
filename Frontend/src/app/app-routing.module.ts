@@ -21,7 +21,7 @@ const routes: Routes = [
 
 
     //Snippets
-    { path:'snippets/create', component: CreateSnippetComponent, canActivate: [AuthGuard]},
+    { path:'snippets/create', component: SnippetCreateComponent, canActivate: [AuthGuard]},
 
     //Mash
     { path: 'mash/:id', component:MashRetrieveComponent, canActivate: [AuthGuard]},

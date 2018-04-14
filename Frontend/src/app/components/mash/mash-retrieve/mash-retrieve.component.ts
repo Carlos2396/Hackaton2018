@@ -29,15 +29,9 @@ export class MashRetrieveComponent implements OnInit {
 
   ngOnInit() {
     this.message = '';
-<<<<<<< HEAD
     this.mash = new Mash(null, null, null, null,null,null,null,null,null,null,null,null);
     this.mash.user =  new User(null,null, null,null, null, null);
     this.roundCount = 0;
-=======
-    this.mash = new Mash(null, null, null, null, null, null, null, null, null, null, null, null);
-    this.mash.user = new User(null, null, null, null, null, null);
-
->>>>>>> 2bf6ce9b9b3752fb36f1f2491acf0d1e493507d8
     this.id = parseInt(this.route.snapshot.paramMap.get("id"));
 
     console.log(this.auth.isLoggedIn());
