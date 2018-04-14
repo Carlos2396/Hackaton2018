@@ -12,7 +12,6 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./snippet-create.component.css']
 })
 export class SnippetCreateComponent implements OnInit {
-
   message: string;
   user: User;
   snippet: Snippet;
