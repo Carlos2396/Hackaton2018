@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-snippet',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateSnippetComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth:AuthService, private router:Router) { }
 
   ngOnInit() {
   }
