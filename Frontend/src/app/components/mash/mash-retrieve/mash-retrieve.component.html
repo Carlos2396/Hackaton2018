@@ -63,7 +63,7 @@
                                 </button>
                     </div>
                     <div class="col-md-4 content-center">
-                        <button class="btn btn-primary">Agregar mi snippet</button>
+                        <button class="btn btn-primary" type="button" (click)="addSnippet()">Agregar mi snippet</button>
                     </div>
                 </div>
                 <div class="row" *ngFor="let round of rounds">
@@ -109,12 +109,12 @@
                                                                 </th>
                                                             </thead>
                                                             <tbody>
-                                                                <tr *ngFor="let snipet of snippets">
+                                                                <tr *ngFor="let snippet of snippets">
                                                                     <td>
-                                                                        {{snipet.instrument.name}}
+                                                                        {{snippet.instrument.name}}
                                                                     </td>
                                                                     <td>
-                                                                        {{snipet.user.name}}
+                                                                        {{snippet.user.name}}
                                                                     </td>
                                                                     <td>
                                                                         {{project.begin_date}}

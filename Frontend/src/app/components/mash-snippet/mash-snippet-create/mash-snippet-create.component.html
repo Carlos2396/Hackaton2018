@@ -1,12 +1,12 @@
-<div class="page-header" filter-color="orange">
-    <div class="page-header-image" style="background-image:url(../assets/img/backgroundNegro.jpg)"></div>
+<div class="page-header" filter-color="black">
+    <div class="page-header-image" style="background-image:url(../../../assets/img/backgroundNegro.jpg)"></div>
     <div class="container">
         <div class="col-md-4 content-center">
             <div class="card card-login card-plain">
                 <form class="form" (submit)="create()">
                     <div class="content">
                         <h2 class="title">Agregar snippet</h2>
-                        <h3 class="title">Mash-up {{round.id}}}</h3>
+                        <h3 class="title">Mash-up {{mash.name}}}</h3>
                         <div class="input-group form-group-no-border input-xl">
                             <select class="form-control text-white" id="snippet_id" name="snippet_id" [(ngModel)]="snippet.id">
                                 <option selected>Snippet</option>
@@ -16,7 +16,7 @@
                             </select>
                         </div>
                         <div class="input-group form-group-no-border input-lg">
-                          <input type="number" class="form-control" placeholder="Segundos antes de que empiece tu snippet." id="start_time" name="start_time" [(ngModel)]="mash.quantum" min="0" step="1">
+                          <input type="number" class="form-control text-white" placeholder="Segundos antes de que empiece tu snippet." id="start_time" name="start_time" [(ngModel)]="mash.quantum" min="0" step="1">
                         </div>
                     </div>
                     <div class="row">

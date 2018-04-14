@@ -4,7 +4,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { User } from '../../../models/user.model';
 import { Snippet } from '../../../models/snippet.model';
 import { CrudService } from '../../../services/crud.service';
-import { FileUploadService } from '../../../services/file-upload-service.service';
 import { FormControl, FormGroup, Validators, NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders, HttpEventType, HttpRequest, HttpErrorResponse, HttpEvent } from '@angular/common/http';
 import { Instrument } from '../../../models/instrument.model';
@@ -21,7 +20,7 @@ export class SnippetCreateComponent implements OnInit {
   instruments: Instrument;
 
   constructor(private crud: CrudService, private auth: AuthService, private route: ActivatedRoute,
-    private router: Router, private fileUploadService: FileUploadService) { }
+    private router: Router) { }
 
   ngOnInit() {
     this.snippet = new Snippet(null, null, null, null, null, null, null, null, null);

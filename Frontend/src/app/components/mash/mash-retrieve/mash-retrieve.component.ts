@@ -1,5 +1,4 @@
-import { Component, OnInit, group } from '@angular/core';
-import * as Pz from "pizzicato";
+import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../../../services/crud.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { User } from '../../../models/user.model';
@@ -122,21 +121,7 @@ export class MashRetrieveComponent implements OnInit {
   }
 
   addSnippet(){
-    this.router.navigate(['mash/'+this.mash.rounds[length].id + '/snippet']);
-  }
-
-  playAll(){
-    
-    console.log("Playing");
-    var audio1 = new Pz.Sound('../../../assets/music/bensound-cute.mp3', function(){
-      var audio2 = new Pz.Sound('../../../../../assets/music/bensound-jazzyfrenchy.mp3', function(){
-        var group = new Pz.Group();
-        
-        group.addSound(audio1);
-        group.addSound(audio2);
-        group.play();
-      });
-    });
-    
+    this.router.navigate(['mash/'+this.mash.rounds[this.mash.rounds.length-1].id + '/snippet']);
+  } 
   }
 }
