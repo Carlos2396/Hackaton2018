@@ -9,7 +9,7 @@ export class Round {
         public mash_id: number,
         public mash?: Mash,
         public users?: User[],
-        public snippet?: Snippet[],
+        public snippets?: Snippet[],
         public id?: number,
     ) { }
 }
