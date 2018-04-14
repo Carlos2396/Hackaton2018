@@ -8,6 +8,7 @@ import { Snippet } from '../../../models/snippet.model';
 
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
+import { allResolved } from 'q';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class MashRetrieveComponent implements OnInit {
   message: string;
   mash: Mash;
   id: number;
+  allSnippets: Snippet[];
   snippets: Snippet[];
   rounds: Round[];
   roundViewd: number;
@@ -32,6 +34,7 @@ export class MashRetrieveComponent implements OnInit {
     this.mash = new Mash(null, null, null, null,null,null,null,null,null,null,null,null);
     this.mash.user =  new User(null,null, null,null, null, null);
     this.roundCount = 0;
+    this.rounds = null;
     this.id = parseInt(this.route.snapshot.paramMap.get("id"));
 
     console.log(this.auth.isLoggedIn());
@@ -56,13 +59,28 @@ export class MashRetrieveComponent implements OnInit {
   }
 
   askForView(id: number) {
-    for (let round of this.rounds) {
-      if (round.id = id) {
-        this.snippets = round.snippets;
-      }
+    if(id != 0){
+      this.crud.retrieve(this.crud.models.ROUND, id)
+      .subscribe(
+        (res:Round)=>{
+          this.snippets = res.snippets;
+        },
+        (err:HttpErrorResponse) => {
+          if(err.error){
+            this.message = err.error.message;
+          }
+          else{
+            this.message = err.error.errors[0].message;
+          }
+        }
+      )
+      this.roundViewd = id;
     }
-
-    this.roundViewd = id;
+    else{
+      this.roundViewd = 0;
+    }
+    
+    
   }
 
   imShowing(id: number){

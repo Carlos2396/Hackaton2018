@@ -28,13 +28,13 @@
                         </div>
                     </div>  
                                       
-                <div class="row">
-                    <div class="col-md-6 content-center">
-                        <div class="card">
+                <div class="row" *ngIf="mashes">
+                    <div class="col-md-12 content-center">
+                        <div class="card card-login card-plain">
                             <div class="card-header card-header-primary">
                                 <h4 class="card-title ">Otros Mashes</h4>
                             </div>
-                            <div class="card-body" *ngIf="mashes">
+                            <div class="card-body" >
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead class=" text-primary">
@@ -58,15 +58,15 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                            <tr *ngFor="let mash of mashes">
+                                            <tr *ngFor="let mashi of mashes">
                                                 <td>
-                                                    <a href="mashes/{{mashDest.id}}">{{mash.name}}</a>
+                                                    <a href="mashes/{{mashi.id}}">{{mashi.name}}</a>
                                                 </td>
                                                 <td>
-                                                    {{mash.users.lenght}}
+                                                    {{mashi.users.length}}
                                                 </td>
                                                 <td>
-                                                    {{mash.rounds.length}}
+                                                    {{mashi.rounds.length}}
                                                 </td>
                                                 <td>
                                                         <button class="btn btn-primary btn-round" type="button">
