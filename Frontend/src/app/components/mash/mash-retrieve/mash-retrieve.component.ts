@@ -23,6 +23,7 @@ export class MashRetrieveComponent implements OnInit {
   snippets: Snippet[];
   rounds: Round[];
   roundViewd: number;
+  roundCount: number;
   constructor(private crud:CrudService, private router:Router, private route:ActivatedRoute) { }
 
   ngOnInit() {
@@ -48,6 +49,7 @@ export class MashRetrieveComponent implements OnInit {
         }
       }
     )
+    this.roundCount = this.rounds.length;
   }
 
   askForView(id: number){

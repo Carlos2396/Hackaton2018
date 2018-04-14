@@ -18,6 +18,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LogoutComponent } from './components/authentication/logout/logout.component';
 import { UserCreateComponent } from './components/user/user-create/user-create.component';
 import { MashRetrieveComponent } from './components/mash/mash-retrieve/mash-retrieve.component';
+import { MashListComponent } from './components/mash/mash-list/mash-list.component';
 
 
 
@@ -30,7 +31,8 @@ import { MashRetrieveComponent } from './components/mash/mash-retrieve/mash-retr
     NavbarComponent,
     LogoutComponent,
     UserCreateComponent,
-    MashRetrieveComponent
+    MashRetrieveComponent,
+    MashListComponent
   ],
   imports: [
     BrowserModule,

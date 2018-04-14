@@ -17,24 +17,28 @@
                         </button>
                     </div>
                 </div>
-                <h3 class="title">{{mash.name}}</h3>
-                    <div class="row">
-                        <div class="col-md-4 content-center">
-                            <h4>Ronda: {{roundCount}} </h4>
+                <h3 class="title">Mashes destacados</h3>
+                    <div class="row" >
+                        <div class="col-md-4 content-center" *ngFor="let mashDest for mashesDest">
+                            <button class="btn btn-primary btn-round" type="button">
+                                <i class="now-ui-icons media-1_button-play"></i>
+                            </button>
+                            <a href="retrieveMash(mash.Dest.id)"><h4>{{mashDest.name}}</h4></a>
+                            <h4>{{mashDest.name}}</h4>
                         </div>
                         <div class="col-md-4 content-center">
-                            <h4>Bpm: {{mash.bpm}} </h4>
+                            <h4>Bpm: </h4>
                         </div>
                         <div class="col-md-4 content-center">
-                            <h4>Llave: {{mash.key}} </h4>
+                            <h4>Llave: </h4>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 content-center">
-                            <h4>Metrica: {{mash.metre}}</h4>
+                            <h4>Metrica: </h4>
                         </div>
                         <div class="col-md-6 content-center">
-                            <h4>Likes: {{mash.like}} </h4>
+                            <h4>Likes: </h4>
                         </div>
                     </div>   
                                       
