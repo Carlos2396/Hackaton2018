@@ -21,10 +21,13 @@ class CreateMashesTable extends Migration
             $table->integer('bpm')->unsigned();
             $table->enum('key', ['Do', 'Re', 'Mi', 'Fa', 'Sol', 'La', 'Si']);
             $table->enum('metre', ['3/4', '4/4', '6/8', '7/8', '5/4']);
+            $table->boolean('completed')->default(false);
             $table->timestamps();
 
             $table->integer('user_id')->unsigned();
+            $table->integer('snippet_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('snippet_id')->references('id')->on('snippets')->onDelete('cascade');
         });
 
         Schema::create('mash_user', function (Blueprint $table) {

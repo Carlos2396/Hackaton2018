@@ -15,6 +15,8 @@ class CreateRoundsTable extends Migration
     {
         Schema::create('rounds', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('num');
+            $table->dateTime('start_datetime');
             $table->timestamps();
 
             $table->integer('mash_id')->unsigned();
@@ -35,7 +37,7 @@ class CreateRoundsTable extends Migration
 
         Schema::create('round_snippet', function (Blueprint $table) {
             $table->increments('id');
-            $table->dateTime('start_time');
+            $table->integer('start_time');
             $table->timestamps();
 
             $table->integer('round_id')->unsigned();

@@ -20,7 +20,8 @@ class MashController extends Controller
         Mash::with([
             'user',
             'users',
-            'rounds'
+            'rounds',
+            'snippet'
         ])->get(), 200);
     }
 
@@ -80,6 +81,7 @@ class MashController extends Controller
         $mash->user;
         $mash->users;
         $mash->rounds;
+        $mash->snippet;
         return response($mash, 200);
     }
 

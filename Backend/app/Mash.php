@@ -57,4 +57,8 @@ class Mash extends Model
     public function rounds(){
         return $this->hasMany('App\Round');
     }
+
+    public function snippet(){
+        return $this->belongsTo('App\Snippet');
+    }
 }

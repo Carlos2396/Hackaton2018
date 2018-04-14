@@ -21,7 +21,8 @@ class SnippetController extends Controller
                 'instrument',
                 'user',
                 'usersLike',
-                'rounds'
+                'rounds',
+                'mashes'
             ])->get(), 200);
     }
 
@@ -64,6 +65,7 @@ class SnippetController extends Controller
         $snippet->user;
         $snippet->usersLike;
         $snippet->rounds;
+        $snippet->mash;
         return response($snippet, 200);
     }
 

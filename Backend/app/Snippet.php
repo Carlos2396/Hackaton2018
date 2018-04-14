@@ -12,7 +12,7 @@ class Snippet extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'user_id', 'instrument_id'
+        'name', 'user_id', 'instrument_id', 'path'
     ];
 
     /**
@@ -35,5 +35,9 @@ class Snippet extends Model
     public function rounds(){
         return $this->belongsToMany('App\Round')
             ->withPivot('start_time');
+    }
+
+    public function mashes(){
+        return $this->hasMany('App\Mash');
     }
 }
