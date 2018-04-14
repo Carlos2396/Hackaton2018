@@ -15,6 +15,8 @@ class CreateInstrumentsTable extends Migration
     {
         Schema::create('instruments', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->enum('type', ['Brass', 'String', 'Woodwind', 'Percussion', 'Keyboard']);
             $table->timestamps();
         });
     }
