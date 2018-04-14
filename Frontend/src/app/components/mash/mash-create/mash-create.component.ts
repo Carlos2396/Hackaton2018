@@ -17,12 +17,71 @@ export class MashCreateComponent implements OnInit {
   user: User;
   mash: Mash;
 
-  constructor(private auth:AuthService, private router:Router) { }
+  constructor(private crud:CrudService, private auth:AuthService, private router:Router) { }
 
   ngOnInit() {
     this.mash = new Mash(null, null, null, null, null, null, null, null, null, null, null, null, null);
     let user_id = this.auth.getUser().id;
     this.mash.user_id = user_id;
+  }
+
+  create(){
+    if(this.validate()){
+      this.crud.create(this.crud.models.MASH, this.mash)
+      .subscribe(
+        (res:Mash)=>{
+          this.mash = res;
+          this.router.navigate(['mash/' + res.id]);
+        },
+        (err:HttpErrorResponse) => {
+          console.log(err);
+          if(err.error){
+            this.message = err.error.message;
+          }
+          else{
+            this.message = err.error.errors[0].message;
+          }
+        }
+      )
+    }
+    return false;
+  }
+
+  validate(){
+
+    if(!this.mash.name){
+      this.message = 'Debes escoger un nombre para tu mash-up.';
+      return false;
+    }
+    if(!this.mash.snippet_id){
+      this.message = 'Debes escoger un snippet.';
+      return false;
+    }
+    if(!this.mash.bpm){
+      this.message = 'Debes escoger un tempo.';
+      return false;
+    }
+    if(!this.mash.key){
+      this.message = 'Debes escoger una escala.';
+      return false;
+    }
+    if(!this.mash.metre){
+      this.message = 'Debes escoger una métrica.';
+      return false;
+    }
+    if(!this.mash.start_datetime){
+      this.message = 'Debes escoger un día y hora de inicio de la colaboración';
+      return false;
+    }
+    if(!this.mash.quantum){
+      this.message = 'Debes escoger un tiempo de pariticipación por ronda';
+      return false;
+    }
+    else{
+      this.message = '';
+      console.log('Validado');
+      return true;
+    }
   }
 
 }

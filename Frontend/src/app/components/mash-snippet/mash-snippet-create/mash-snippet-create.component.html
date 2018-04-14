@@ -3,22 +3,20 @@
     <div class="container">
         <div class="col-md-4 content-center">
             <div class="card card-login card-plain">
-                <form class="form" class="form" (submit)="create()">
+                <form class="form" (submit)="create()">
                     <div class="content">
-                        <h2 class="title">Subir snippet</h2>
-                        <div class="input-group form-group-no-border input-lg">
-                            <input type="text" class="form-control" placeholder="Nombre del snippet" id="name" name="name" [(ngModel)]="snippet.name">
-                        </div>
+                        <h2 class="title">Agregar snippet</h2>
+                        <h3 class="title">Mash-up {{round.id}}}</h3>
                         <div class="input-group form-group-no-border input-xl">
-                            <select class="form-control text-white" id="instrument_id" name="instrument_id" [(ngModel)]="snippet.instrument_id">
-                                <option selected>Instrumento</option>
-                                <ng-container *ngFor="let instrument of instruments" class="form-group">
-                                    <option value="{{instrument.id}}">{{instrument.name}}</option>
+                            <select class="form-control text-white" id="snippet_id" name="snippet_id" [(ngModel)]="snippet.id">
+                                <option selected>Snippet</option>
+                                <ng-container *ngFor="let snippet of snippets" class="form-group">
+                                    <option value="{{snippet.id}}">{{snippet.name}}</option>
                                 </ng-container>
                             </select>
                         </div>
                         <div class="input-group form-group-no-border input-lg">
-                            <input type="file" id="path" name="path" [(ngModel)]="snippet.path">
+                          <input type="number" class="form-control" placeholder="Segundos antes de que empiece tu snippet." id="start_time" name="start_time" [(ngModel)]="mash.quantum" min="0" step="1">
                         </div>
                     </div>
                     <div class="row">
@@ -27,7 +25,7 @@
                             <button class="btn btn-primary btn-round btn-lg btn-block" (click)="onSelectCancel()">Cancelar</button>
                         </div>
                         <div class="col-md-3">
-                            <button type="submit" class="btn btn-primary btn-round btn-lg btn-block">Crear</button>
+                            <button type="submit" class="btn btn-primary btn-round btn-lg btn-block">Añadir</button>
                         </div>
                     </div>
                 </form>

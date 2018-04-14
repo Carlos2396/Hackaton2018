@@ -20,6 +20,7 @@ import { UserCreateComponent } from './components/user/user-create/user-create.c
 import { MashRetrieveComponent } from './components/mash/mash-retrieve/mash-retrieve.component';
 import { MashCreateComponent } from './components/mash/mash-create/mash-create.component';
 import { MashListComponent } from './components/mash/mash-list/mash-list.component';
+import { MashSnippetCreateComponent } from './components/mash-snippet/mash-snippet-create/mash-snippet-create.component';
 
 
 
@@ -34,7 +35,8 @@ import { MashListComponent } from './components/mash/mash-list/mash-list.compone
     UserCreateComponent,
     MashRetrieveComponent,
     MashCreateComponent,
-    MashListComponent
+    MashListComponent,
+    MashSnippetCreateComponent
   ],
   imports: [
     BrowserModule,
