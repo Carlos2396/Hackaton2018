@@ -19,7 +19,7 @@ import { LandingComponent } from './components/landing/landing.component';
 @NgModule({
   declarations: [
     AppComponent,
-    CreateSnippetComponent
+    CreateSnippetComponent,
     LoginComponent,
     LandingComponent
   ],
