@@ -33,6 +33,50 @@ class MashesTableSeeder extends Seeder
             'snippet_id' => 2
         ]);
 
+        DB::table('mashes')->insert([
+            'name' => 'My mashup3',
+            'start_datetime' => '2018/04/14 12:00',
+            'quantum' => 24,
+            'bpm' => 160,
+            'key' => 'Re',
+            'metre' => '3/4',
+            'user_id' => 2,
+            'snippet_id' => 2
+        ]);
+
+        DB::table('mashes')->insert([
+            'name' => 'My mashup4',
+            'start_datetime' => '2018/04/14 12:00',
+            'quantum' => 24,
+            'bpm' => 160,
+            'key' => 'Re',
+            'metre' => '3/4',
+            'user_id' => 2,
+            'snippet_id' => 2
+        ]);
+
+        DB::table('mashes')->insert([
+            'name' => 'My mashup 5',
+            'start_datetime' => '2018/04/14 12:00',
+            'quantum' => 24,
+            'bpm' => 160,
+            'key' => 'Re',
+            'metre' => '3/4',
+            'user_id' => 2,
+            'snippet_id' => 2
+        ]);
+
+        DB::table('mashes')->insert([
+            'name' => 'My mashup',
+            'start_datetime' => '2018/04/14 12:00',
+            'quantum' => 24,
+            'bpm' => 160,
+            'key' => 'Re',
+            'metre' => '3/4',
+            'user_id' => 2,
+            'snippet_id' => 2
+        ]);
+
         DB::table('mash_user')->insert([
             'user_id' => 4,
             'mash_id' => 1
