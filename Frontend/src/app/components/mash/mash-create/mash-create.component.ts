@@ -84,4 +84,8 @@ export class MashCreateComponent implements OnInit {
     }
   }
 
+  onSelectCancel(){
+    this.router.navigate(['mash/']);
+  }
+
 }

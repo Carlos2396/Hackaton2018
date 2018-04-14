@@ -20,6 +20,7 @@ export class MashRetrieveComponent implements OnInit {
 
 
   message: string;
+  successMessage: string;
   mash: Mash;
   id: number;
   allSnippets: Snippet[];
@@ -36,7 +37,7 @@ export class MashRetrieveComponent implements OnInit {
     this.roundCount = 0;
     this.rounds = null;
     this.id = parseInt(this.route.snapshot.paramMap.get("id"));
-
+    this.successMessage = '';
     console.log(this.auth.isLoggedIn());
 
     this.crud.retrieve(this.crud.models.MASH, this.id)
@@ -94,5 +95,34 @@ export class MashRetrieveComponent implements OnInit {
 
   removeMessage(){
     this.message = '';
+  }
+
+  createMashUser(){
+    var user_id = this.auth.getUser().id;
+    let x ={
+      mash_id: this.id,
+      user_id: user_id
+    }
+
+    this.crud.create(this.crud.models.MASH_USER, x)
+    .subscribe(
+      (res)=>{
+        console.log(res);
+        this.successMessage = 'Le diste like sin errores'
+      },
+      (err:HttpErrorResponse) => {
+        if(err.error){
+          this.message = err.error.message;
+        }
+        else{
+          this.message = err.error.errors[0].message;
+        }
+      }
+    )
+
+  }
+
+  addSnippet(){
+    this.router.navigate(['mash/'+this.mash.rounds.length + '/snippet']);
   }
 }

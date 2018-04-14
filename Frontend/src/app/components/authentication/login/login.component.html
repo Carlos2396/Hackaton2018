@@ -4,41 +4,41 @@
     <div class="container">
         <div class="col-md-4 content-center">
             <div class="card card-login card-plain">
-                <div class="alert alert-success" role="alert" *ngIf="successMessage">
-                    <div class="container">
-                        <div class="alert-icon">
-                            <i class="now-ui-icons ui-2_like"></i>
+                
+                    <div class="header header-primary text-center mt-5">
+                            <div class="logo-container">
+                                <img src="../assets/img/now-logo.png" alt="" style="width:400px;height:400px;"/>
+                            </div>
                         </div>
-                        <strong>{{successMessage}}</strong>
-                        <button type="button" class="close" (click)="removeMessage()">
-                            <span aria-hidden="true">
-                                <i class="now-ui-icons ui-1_simple-remove"></i>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-                <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
-                    <div class="container">
-                        <div class="alert-icon">
-                            <i class="now-ui-icons objects_support-17"></i>
-                        </div>
-                        <strong>{{errorMessage}}</strong>
-                        <button type="button" class="close" (click)="removeMessage()">
-                            <span aria-hidden="true">
-                                <i class="now-ui-icons ui-1_simple-remove"></i>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-
+                        <div class="alert alert-success" role="alert" *ngIf="successMessage">
+                                <div class="container">
+                                    <div class="alert-icon">
+                                        <i class="now-ui-icons ui-2_like"></i>
+                                    </div>
+                                    <strong>{{successMessage}}</strong>
+                                    <button type="button" class="close" (click)="removeMessage()">
+                                        <span aria-hidden="true">
+                                            <i class="now-ui-icons ui-1_simple-remove"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+                                <div class="container">
+                                    <div class="alert-icon">
+                                        <i class="now-ui-icons objects_support-17"></i>
+                                    </div>
+                                    <strong>{{errorMessage}}</strong>
+                                    <button type="button" class="close" (click)="removeMessage()">
+                                        <span aria-hidden="true">
+                                            <i class="now-ui-icons ui-1_simple-remove"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
                 <form class="form" (submit)="login()">
-                    <div class="header header-primary text-center">
-                        <div class="logo-container">
-                            <img src="../assets/img/now-logo.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="content mt-5">
+                    
+                    <div class="content">
                         <div class="input-group form-group-no-border input-lg">
                             <span class="input-group-addon">
                                 <i class="now-ui-icons users_circle-08"></i>
