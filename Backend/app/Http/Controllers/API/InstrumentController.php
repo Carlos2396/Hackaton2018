@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Instrument;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class InstrumentController extends Controller
 {
@@ -44,7 +45,8 @@ class InstrumentController extends Controller
         }
 
         $instrument = Instrument::create([
-            'name' => $request->name
+            'name' => $request->name,
+            'type' => $request->type
         ]);
         
         if($instrument){
@@ -84,12 +86,16 @@ class InstrumentController extends Controller
         if($validator->fails()){
             return response($validator->errors(), 400);
         }
+        if(!Instrument::matchesType($request->type))
+        {
+            return response(["message" => "The instrument type is not valid."], 400);
+        }
 
         $instrument->name = $request->name;
         $instrument->type = $request->type;
         
-        if($user->save()){
-            return response($user, 200);
+        if($instrument->save()){
+            return response($instrument, 200);
         }
         else{
             return response(["message" => "Unabled to update instrument."], 400);

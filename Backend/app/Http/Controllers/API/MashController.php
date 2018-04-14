@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Mash;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class MashController extends Controller
 {
@@ -15,12 +16,12 @@ class MashController extends Controller
      */
     public function index()
     {
-        return 
+        return response(
         Mash::with([
             'user',
             'users',
-            'round'
-        ])->get();
+            'rounds'
+        ])->get(), 200);
     }
 
     /**
@@ -37,7 +38,8 @@ class MashController extends Controller
             'quantum' => 'required|integer|max:168|min:1',
             'bpm' => 'required|integer|min:40|max:300',
             'key' => 'required|max:100',
-            'metre' => 'required|max:100'
+            'metre' => 'required|max:100',
+            'user_id' => 'required|integer|min:1'
         ]);
 
         if($validator->fails()){
@@ -49,18 +51,19 @@ class MashController extends Controller
             return response(["message" => "The mash key is not valid."], 400);
         }
 
-        if(!Mash::matchesKey($request->metre))
+        if(!Mash::matchesMetre($request->metre))
         {
             return response(["message" => "The mash metre is not valid."], 400);
         }
 
         $mash = Mash::create([
             'name' => $request->name,
-            'start_datetime' => $request->datetime,
-            'quantum' => $request->datetime,
+            'start_datetime' => $request->start_datetime,
+            'quantum' => $request->quantum,
             'bpm' => $request->bpm,
             'key' => $request->key,
-            'metre' => $request->metre
+            'metre' => $request->metre,
+            'user_id' => $request->user_id
         ]);
 
         return response($mash, 201);
@@ -74,12 +77,9 @@ class MashController extends Controller
      */
     public function show(Mash $mash)
     {
-        $mash->name;
-        $mash->start_datetime;
-        $mash->quantum;
-        $mash->bpm;
-        $mash->key;
-        $mash->metre;
+        $mash->user;
+        $mash->users;
+        $mash->rounds;
         return response($mash, 200);
     }
 
@@ -98,18 +98,31 @@ class MashController extends Controller
             'quantum' => 'required|integer|max:168|min:1',
             'bpm' => 'required|integer|min:40|max:300',
             'key' => 'required|max:100',
-            'metre' => 'required|max:100'
+            'metre' => 'required|max:100',
+            'user_id' => 'required|integer|min:1'
         ]);
 
         if($validator->fails()){
             return response($validator->errors(), 400);
         }
+
+        if(!Mash::matchesKey($request->key))
+        {
+            return response(["message" => "The mash key is not valid."], 400);
+        }
+
+        if(!Mash::matchesMetre($request->metre))
+        {
+            return response(["message" => "The mash metre is not valid."], 400);
+        }
+        
         $mash->name = $request->name;
-        $mash->start_datetime = $request->datetime;
-        $mash->quantum = $request->datetime;
+        $mash->start_datetime = $request->start_datetime;
+        $mash->quantum = $request->quantum;
         $mash->bpm = $request->bpm;
         $mash->key = $request->key;
         $mash->metre = $request->metre;
+        $mash->user_id = $request->user_id;
         
         if($mash->save()){
             return response($mash, 200);

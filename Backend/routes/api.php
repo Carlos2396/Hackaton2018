@@ -25,12 +25,33 @@ Route::group(['as' => 'api', 'namespace' => 'API'], function () {
     Route::put('users/{user}', 'UserController@update')->name('users.update');
     Route::delete('users/{user}', 'UserController@destroy')->name('users.delete');
 
-    // Users routes
+    // Snippets routes
     Route::get('snippets', 'SnippetController@index')->name('snippets');
     Route::get('snippets/{snippet}', 'SnippetController@show')->name('snippets.show');
     Route::post('snippets', 'SnippetController@store')->name('snippets.store');
     Route::put('snippets/{snippet}', 'SnippetController@update')->name('snippets.update');
     Route::delete('snippets/{snippet}', 'SnippetController@destroy')->name('snippets.delete');
+
+    // Round routes
+    Route::get('rounds', 'RoundController@index')->name('rounds');
+    Route::get('rounds/{round}', 'RoundController@show')->name('rounds.show');
+    Route::post('rounds', 'RoundController@store')->name('rounds.store');
+    Route::put('rounds/{round}', 'RoundController@update')->name('rounds.update');
+    Route::delete('rounds/{round}', 'RoundController@destroy')->name('rounds.delete');
+
+    // Instrument routes
+    Route::get('instruments', 'InstrumentController@index')->name('instruments');
+    Route::get('instruments/{instrument}', 'InstrumentController@show')->name('instruments.show');
+    Route::post('instruments', 'InstrumentController@store')->name('instruments.store');
+    Route::put('instruments/{instrument}', 'InstrumentController@update')->name('instruments.update');
+    Route::delete('instruments/{instrument}', 'InstrumentController@destroy')->name('instruments.delete');
+
+    // Mash routes
+    Route::get('mashes', 'MashController@index')->name('mashes');
+    Route::get('mashes/{mash}', 'MashController@show')->name('mashes.show');
+    Route::post('mashes', 'MashController@store')->name('mashes.store');
+    Route::put('mashes/{mash}', 'MashController@update')->name('mashes.update');
+    Route::delete('mashes/{mash}', 'MashController@destroy')->name('mashes.delete');
 });
 
 /*Route::middleware('auth:api')->get('/user', function (Request $request) {

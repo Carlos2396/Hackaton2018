@@ -19,7 +19,7 @@ class Instrument extends Model
     //Static methods
     public static function matchesType($input)
     {
-        foreach ($types as $type)
+        foreach (Instrument::$types as $type)
         {
             if(strcmp($type, $input) == 0)
                 return true;

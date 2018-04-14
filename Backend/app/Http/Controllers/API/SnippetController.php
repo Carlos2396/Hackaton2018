@@ -16,13 +16,13 @@ class SnippetController extends Controller
      */
     public function index()
     {
-        return 
-        Snippet::with([
-            'instrument',
-            'user',
-            'usersLike',
-            'rounds'
-        ])->get();
+        return response(
+            Snippet::with([
+                'instrument',
+                'user',
+                'usersLike',
+                'rounds'
+            ])->get(), 200);
     }
 
     /**

@@ -16,13 +16,13 @@ class UserController extends Controller
      */
     public function index()
     {
-        return 
-        User::with([
-            'snippets',
-            'mashes',
-            'likedSnippets',
-            'followedMashes'
-        ])->get();
+        return response(
+            User::with([
+                'snippets',
+                'mashes',
+                'likedSnippets',
+                'followedMashes'
+            ])->get(), 200);
     }
 
     /**

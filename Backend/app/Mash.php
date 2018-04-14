@@ -20,7 +20,7 @@ class Mash extends Model
     //Static methods
     public static function matchesKey($input)
     {
-        foreach ($keys as $key)
+        foreach (Mash::$keys as $key)
         {
             if(strcmp($key, $input) == 0)
                 return true;
@@ -30,7 +30,7 @@ class Mash extends Model
 
     public static function matchesMetre($input)
     {
-        foreach ($metres as $metre)
+        foreach (Mash::$metres as $metre)
         {
             if(strcmp($metre, $input) == 0)
                 return true;
