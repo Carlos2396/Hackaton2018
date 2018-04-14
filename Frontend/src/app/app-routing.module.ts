@@ -11,6 +11,7 @@ import { LogoutComponent } from './components/authentication/logout/logout.compo
 import { UserCreateComponent } from './components/user/user-create/user-create.component';
 import { MashRetrieveComponent } from './components/mash/mash-retrieve/mash-retrieve.component';
 import { MashCreateComponent } from './components/mash/mash-create/mash-create.component';
+import { MashSnippetCreateComponent } from './components/mash-snippet/mash-snippet-create/mash-snippet-create.component';
 
 const routes: Routes = [
 
@@ -24,8 +25,12 @@ const routes: Routes = [
     { path:'snippets/create', component: SnippetCreateComponent, canActivate: [AuthGuard]},
 
     //Mash
+
+    { path: 'mash/create', component:MashCreateComponent},
     { path: 'mash/:id', component:MashRetrieveComponent, canActivate: [AuthGuard]},
-    { path: 'mash/create', component:MashCreateComponent, canActivate: [AuthGuard]},
+
+    //Mash-snippet
+    { path: 'mash/:route_id/snippet', component:MashSnippetCreateComponent},
 
     { path:'', redirectTo:'login', pathMatch: 'full'},
     { path: '**', redirectTo: '' }

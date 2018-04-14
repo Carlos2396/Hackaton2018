@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SnippetCreateComponent } from './snippet-create.component';
+import { MashSnippetCreateComponent } from './mash-snippet-create.component';
 
-describe('SnippetCreateComponent', () => {
-  let component: SnippetCreateComponent;
-  let fixture: ComponentFixture<SnippetCreateComponent>;
+describe('MashSnippetCreateComponent', () => {
+  let component: MashSnippetCreateComponent;
+  let fixture: ComponentFixture<MashSnippetCreateComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SnippetCreateComponent ]
+      declarations: [ MashSnippetCreateComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SnippetCreateComponent);
+    fixture = TestBed.createComponent(MashSnippetCreateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
