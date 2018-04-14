@@ -12,7 +12,6 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./snippet-create.component.css']
 })
 export class SnippetCreateComponent implements OnInit {
-
   message: string;
   user: User;
   snippet: Snippet;
@@ -35,12 +34,9 @@ export class SnippetCreateComponent implements OnInit {
         },
         (err:HttpErrorResponse) => {
           console.log(err);
-          if(err.error){
-            this.message = err.error.message;
-          }
-          else{
-            this.message = err.error.errors[0].message;
-          }
+          Object.values(err.error).forEach( error => {
+            this.message = error[0];
+          });
         }
       )
     }

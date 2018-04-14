@@ -48,6 +48,14 @@ export class CrudService {
     );
   }
 
+  registerUser(body:any) {
+    return this.http.post(
+      this.URL + "/" + this.models.USER,
+      body,
+      { headers: this.headers }
+    );
+  }
+
   update(model: string, id: any, body: any) {
     return this.http.put(
       this.URL + "/" + model + "/" + id,
