@@ -30,6 +30,7 @@ export class MashListComponent implements OnInit {
         if(res.length > 3){
           this.mashesDest = res.slice(0,3);
           this.mashes = res.slice(3);
+          console.log(this.mashes);
         }
         else{
           this.mashesDest = res;
