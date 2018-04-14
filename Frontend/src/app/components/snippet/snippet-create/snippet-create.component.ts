@@ -4,7 +4,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { User } from '../../../models/user.model';
 import { Snippet } from '../../../models/snippet.model';
 import { CrudService } from '../../../services/crud.service';
-import { HttpErrorResponse } from '@angular/common/http';
+import { FileUploadService } from '../../../services/file-upload-service.service';
+import { FormControl, FormGroup, Validators, NgForm } from '@angular/forms';
+import { HttpClient, HttpHeaders, HttpEventType, HttpRequest, HttpErrorResponse, HttpEvent } from '@angular/common/http';
+import { Instrument } from '../../../models/instrument.model';
 
 @Component({
   selector: 'app-snippet-create',
@@ -15,50 +18,53 @@ export class SnippetCreateComponent implements OnInit {
   message: string;
   user: User;
   snippet: Snippet;
+  instruments: Instrument;
 
-  constructor(private crud:CrudService, private auth:AuthService, private route:ActivatedRoute, private router:Router) { }
+  constructor(private crud: CrudService, private auth: AuthService, private route: ActivatedRoute,
+    private router: Router, private fileUploadService: FileUploadService) { }
 
   ngOnInit() {
     this.snippet = new Snippet(null, null, null, null, null, null, null, null, null);
     let user_id = this.auth.getUser().id;
     this.snippet.user_id = user_id;
+
+    this.crud.list(this.crud.models.INSTRUMENT)
+    .subscribe(
+      (res:Instrument) => {
+        this.instruments = res;
+      },
+      err => {
+        Object.values(err.error).forEach( error => {
+          this.message = error[0];
+        });
+      }
+    )
   }
 
-  create(){
-    if(this.validate()){
-      this.crud.create(this.crud.models.SNIPPET, this.snippet)
-      .subscribe(
-        (res:Snippet)=>{
-          this.snippet = res;
-          this.router.navigate(['mashes']);
-        },
-        (err:HttpErrorResponse) => {
-          console.log(err);
-          Object.values(err.error).forEach( error => {
-            this.message = error[0];
-          });
-        }
-      )
+  create() {
+    if (this.validate()) {
+      return true;
     }
-    return false;
+    else{
+      return false;
+    }
   }
 
-  validate(){
+  validate() {
 
-    if(!this.snippet.name){
+    if (!this.snippet.name) {
       this.message = 'Debes escoger un nombre para tu snippet';
       return false;
     }
 
-    if(!this.snippet.instrument_id){
+    if (!this.snippet.instrument_id) {
       this.message = 'Debes escoger un instrumento';
       return false;
     }
-    else{
-      this.message = '';
-      console.log('Validado');
-      return true;
-    }
+    
+    this.message = '';
+    console.log('Validado');
+    return true;
   }
 
 }
