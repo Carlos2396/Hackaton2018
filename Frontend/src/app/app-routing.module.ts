@@ -27,12 +27,12 @@ const routes: Routes = [
 
     //Mash
 
-    { path: 'mash/create', component:MashCreateComponent},
+    { path: 'mash/create', component:MashCreateComponent, canActivate: [AuthGuard]},
     { path: 'mash', component:MashListComponent, canActivate: [AuthGuard] },
     { path: 'mash/:id', component:MashRetrieveComponent, canActivate: [AuthGuard]},
 
     //Mash-snippet
-    { path: 'mash/:route_id/snippet', component:MashSnippetCreateComponent},
+    { path: 'mash/:route_id/snippet', component:MashSnippetCreateComponent, canActivate: [AuthGuard]},
 
     { path:'', redirectTo:'login', pathMatch: 'full'},
     { path: '**', redirectTo: '' }

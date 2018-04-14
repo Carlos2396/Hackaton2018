@@ -3,6 +3,7 @@ import { AuthService } from '../../../services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { User } from '../../../models/user.model';
 import { Mash } from '../../../models/mash.model';
+import { Snippet } from '../../../models/snippet.model';
 import { CrudService } from '../../../services/crud.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -16,6 +17,7 @@ export class MashCreateComponent implements OnInit {
   message: string;
   user: User;
   mash: Mash;
+  snippet: Snippet;
 
   constructor(private crud:CrudService, private auth:AuthService, private router:Router) { }
 
@@ -33,14 +35,11 @@ export class MashCreateComponent implements OnInit {
           this.mash = res;
           this.router.navigate(['mash/' + res.id]);
         },
-        (err:HttpErrorResponse) => {
+        err => {
           console.log(err);
-          if(err.error){
-            this.message = err.error.message;
-          }
-          else{
-            this.message = err.error.errors[0].message;
-          }
+          Object.values(err.error).forEach( error => {
+            this.message = error[0];
+          });
         }
       )
     }
