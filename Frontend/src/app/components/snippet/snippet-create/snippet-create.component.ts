@@ -21,7 +21,7 @@ export class SnippetCreateComponent implements OnInit {
 
   ngOnInit() {
     this.snippet = new Snippet(null, null, null, null, null, null, null, null, null);
-    let user_id = this.auth.getMember().id;
+    let user_id = this.auth.getUser().id;
     this.snippet.user_id = user_id;
   }
 

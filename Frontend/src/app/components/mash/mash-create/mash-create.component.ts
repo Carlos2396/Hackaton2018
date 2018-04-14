@@ -21,7 +21,7 @@ export class MashCreateComponent implements OnInit {
 
   ngOnInit() {
     this.mash = new Mash(null, null, null, null, null, null, null, null, null, null, null, null, null);
-    let user_id = this.auth.getMember().id;
+    let user_id = this.auth.getUser().id;
     this.mash.user_id = user_id;
   }
 
