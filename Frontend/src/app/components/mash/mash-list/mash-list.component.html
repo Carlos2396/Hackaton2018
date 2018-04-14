@@ -19,113 +19,73 @@
                 </div>
                 <h3 class="title">Mashes destacados</h3>
                     <div class="row" >
-                        <div class="col-md-4 content-center" *ngFor="let mashDest for mashesDest">
+                        <div class="col-md-4 content-center" *ngFor="let mashDest of mashesDest">
                             <button class="btn btn-primary btn-round" type="button">
                                 <i class="now-ui-icons media-1_button-play"></i>
                             </button>
-                            <a href="retrieveMash(mash.Dest.id)"><h4>{{mashDest.name}}</h4></a>
-                            <h4>{{mashDest.name}}</h4>
+                            <a href="mashes/{{mashDest.id}}"><h4>{{mashDest.name}}</h4></a>
+                            <h4>Ronda {{mashDest.rounds.length}}</h4>
                         </div>
-                        <div class="col-md-4 content-center">
-                            <h4>Bpm: </h4>
-                        </div>
-                        <div class="col-md-4 content-center">
-                            <h4>Llave: </h4>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 content-center">
-                            <h4>Metrica: </h4>
-                        </div>
-                        <div class="col-md-6 content-center">
-                            <h4>Likes: </h4>
-                        </div>
-                    </div>   
+                    </div>  
                                       
                 <div class="row">
                     <div class="col-md-6 content-center">
-                        <button class="btn btn-primary btn-round" type="button">
-                            <i class="now-ui-icons media-1_button-play"></i> Play
-                        </button>
-                    </div>
-                    <div class="col-md-6 content-center">
-                        <button class="btn btn-primary">Agregar mi snippet</button>
-                    </div>
-                </div>
-                <div class="row" *ngFor="let round of rounds">
-                    <div class="col-md-6 content-left">
-                        <h4>{{round.num}}
-                            <button class="btn btn-primary btn-round btn-sm" type="button" (click)="askForView(round.id)" *ngIf="!imShowing(round.id)">
-                                <i class="now-ui-icons arrows-1_minimal-down"></i>
-                            </button>
-                            <button class="btn btn-primary btn-round btn-sm" type="button" (click)="askForView(0)" *ngIf="imShowing(round.id)">
-                                <i class="now-ui-icons arrows-1_minimal-up"></i>
-                            </button>
-                        </h4>
-                    </div>
-                    <div class="col-md-6 content-center"  *ngIf="imShowing(round.id)">
-                        <div class="row">
-                            <div class="col-md-12" >
-                                <div class="card">
-                                    <div class="card-header card-header-primary">
-                                        <h4 class="card-title ">{{round.num}}</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="alert alert-danger" role="alert" *ngIf="errorMessage != ''">
-                                            <div class="container">
-                                                <div class="alert-icon">
-                                                    <i class="now-ui-icons objects_support-17"></i>
-                                                </div>
-                                                <strong>{{errorMessage}}</strong> 
-                                                <button type="button" class="close" (click)="removeMessage()">
-                                                    <span aria-hidden="true">
-                                                        <i class="now-ui-icons ui-1_simple-remove"></i>
-                                                    </span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead class=" text-primary">
-                                                    <th>
-                                                        Instrument
-                                                    </th>
-                                                    <th>
-                                                        User name
-                                                    </th>
-                                                    <th>
-                                                        
-                                                    </th>
-                                                    <th>
-                                                    
-                                                    </th>
-                                                </thead>
-                                                <tbody>
-                                                    <tr *ngFor="let snipet of snipets">
-                                                        <td>
-                                                            {{snipet.instrument.name}}
-                                                        </td>
-                                                        <td>
-                                                            {{snipet.user.name}}
-                                                        </td>
-                                                        <td>
-                                                            {{project.begin_date}}
-                                                        </td>
-                                                        <td>
-                                                                <button class="btn btn-primary btn-round" type="button">
-                                                                        <i class="now-ui-icons media-1_button-play"></i>
-                                                                    </button>
-                                                        </td>
-                                                        <td>
-                                                                <button class="btn btn-primary btn-round" type="button">
-                                                                        <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-                                                                    </button>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
+                        <div class="card">
+                            <div class="card-header card-header-primary">
+                                <h4 class="card-title ">Otros Mashes</h4>
+                            </div>
+                            <div class="card-body" *ngIf="mashes">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class=" text-primary">
+                                            <th>
+                                                Nombre
+                                            </th>
+                                            <th>
+                                                Likes
+                                            </th>
+                                            <th>
+                                                Round
+                                            </th>
+                                            <th>
+
+                                            </th>
+                                            <th>
+                                                
+                                            </th>
+                                            <th>
+                                                
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let mash of mashes">
+                                                <td>
+                                                    <a href="mashes/{{mashDest.id}}">{{mash.name}}</a>
+                                                </td>
+                                                <td>
+                                                    {{mash.users.lenght}}
+                                                </td>
+                                                <td>
+                                                    {{mash.rounds.length}}
+                                                </td>
+                                                <td>
+                                                        <button class="btn btn-primary btn-round" type="button">
+                                                                <i class="now-ui-icons media-1_button-play"></i>
+                                                            </button>
+                                                </td>
+                                                <td>
+                                                        <button class="btn btn-primary btn-round" type="button">
+                                                                <i class="now-ui-icons arrows-1_cloud-download-93"></i>
+                                                            </button>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-info btn-round" type="button">
+                                                        <i class="now-ui-icons ui-2_like"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>

@@ -30,7 +30,7 @@ export class MashRetrieveComponent implements OnInit {
     this.message = '';
     this.mash = new Mash(null, null, null, null,null,null,null,null,null,null,null,null);
     this.mash.user =  new User(null,null, null,null, null, null);
-    
+    this.roundCount = 0;
     this.id = parseInt(this.route.snapshot.paramMap.get("id"));
 
     this.crud.retrieve(this.crud.models.MASH, this.id)
@@ -39,6 +39,7 @@ export class MashRetrieveComponent implements OnInit {
         console.log(res);
         this.mash = res;
         this.rounds = this.mash.rounds;
+        this.roundCount = this.rounds.length;
       },
       (err:HttpErrorResponse) => {
         if(err.error){
@@ -49,7 +50,6 @@ export class MashRetrieveComponent implements OnInit {
         }
       }
     )
-    this.roundCount = this.rounds.length;
   }
 
   askForView(id: number){
@@ -63,8 +63,14 @@ export class MashRetrieveComponent implements OnInit {
   }
 
   imShowing(id: number){
-    return id == this.roundViewd;
+    if(id == this.roundViewd)
+      return true;
+    else{
+      return false;
+    }
+    
   }
+
   removeMessage(){
     this.message = '';
   }

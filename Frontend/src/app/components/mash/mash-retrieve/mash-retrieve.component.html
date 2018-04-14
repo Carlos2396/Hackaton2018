@@ -39,12 +39,17 @@
                     </div>   
                                       
                 <div class="row">
-                    <div class="col-md-6 content-center">
+                    <div class="col-md-4 content-center">
                         <button class="btn btn-primary btn-round" type="button">
                             <i class="now-ui-icons media-1_button-play"></i> Play
                         </button>
                     </div>
-                    <div class="col-md-6 content-center">
+                    <div class="col-md-4 content-center">
+                            <button class="btn btn-info btn-round" type="button">
+                                    <i class="now-ui-icons ui-2_like"></i>
+                                </button>
+                    </div>
+                    <div class="col-md-4 content-center">
                         <button class="btn btn-primary">Agregar mi snippet</button>
                     </div>
                 </div>
@@ -64,33 +69,23 @@
                             <div class="col-md-12" >
                                 <div class="card">
                                     <div class="card-header card-header-primary">
-                                        <h4 class="card-title ">{{round.num}}</h4>
+                                        <h4 class="card-title ">Ronda {{round.num}}</h4>
                                     </div>
                                     <div class="card-body">
-                                        <div class="alert alert-danger" role="alert" *ngIf="errorMessage != ''">
-                                            <div class="container">
-                                                <div class="alert-icon">
-                                                    <i class="now-ui-icons objects_support-17"></i>
-                                                </div>
-                                                <strong>{{errorMessage}}</strong> 
-                                                <button type="button" class="close" (click)="removeMessage()">
-                                                    <span aria-hidden="true">
-                                                        <i class="now-ui-icons ui-1_simple-remove"></i>
-                                                    </span>
-                                                </button>
-                                            </div>
-                                        </div>
                                         <div class="table-responsive">
                                             <table class="table">
                                                 <thead class=" text-primary">
                                                     <th>
-                                                        Instrument
+                                                        Instrumento
                                                     </th>
                                                     <th>
-                                                        User name
+                                                        Usuario
                                                     </th>
                                                     <th>
                                                         
+                                                    </th>
+                                                    <th>
+                                                    
                                                     </th>
                                                     <th>
                                                     
@@ -115,6 +110,11 @@
                                                         <td>
                                                                 <button class="btn btn-primary btn-round" type="button">
                                                                         <i class="now-ui-icons arrows-1_cloud-download-93"></i>
+                                                                    </button>
+                                                        </td>
+                                                        <td>
+                                                                <button class="btn btn-info btn-round" type="button">
+                                                                        <i class="now-ui-icons ui-2_like"></i>
                                                                     </button>
                                                         </td>
                                                     </tr>
