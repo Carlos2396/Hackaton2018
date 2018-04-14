@@ -15,7 +15,7 @@ const routes: Routes = [
     {path: 'register', component: UserCreateComponent},
 
     //Snippets
-    {path:'snippets/create', component: CreateSnippetComponent, canActivate: [AuthGuard]},
+    {path:'snippets/create', component: CreateSnippetComponent},
 
   ];
   

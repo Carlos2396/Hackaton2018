@@ -2402,6 +2402,13 @@ fieldset[disabled] .btn-link.active {
 .form-group.form-group-no-border.input-lg .form-control,
 .input-group.form-group-no-border.input-lg .form-control {
     padding: 15px 19px;
+    font-size: 13px;
+}
+
+.form-group.form-group-no-border.input-xl .form-control,
+.input-group.form-group-no-border.input-xl .form-control {
+    padding: 10px 19px;
+    font-size: 13px;
 }
 
 .form-group.form-group-no-border.input-lg .form-control+.input-group-addon,
