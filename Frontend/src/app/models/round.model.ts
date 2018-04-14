@@ -4,9 +4,9 @@ import { Mash } from "./mash.model";
 
 export class Round {
     constructor(
-        public updated_at: Date,
-        public created_at: Date,
         public mash_id: number,
+        public updated_at?: Date,
+        public created_at?: Date,
         public mash?: Mash,
         public users?: User[],
         public snippets?: Snippet[],

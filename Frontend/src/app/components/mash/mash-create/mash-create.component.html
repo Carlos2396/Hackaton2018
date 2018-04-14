@@ -1,0 +1,66 @@
+<div class="page-header" filter-color="orange">
+  <div class="page-header-image" style="background-image:url(../assets/img/backgrounNegro.jpg)"></div>
+  <div class="container">
+    <div class="col-md-4 content-center">
+      <div class="card card-login card-plain">
+        <form class="form" method="" action="">
+          <div class="content">
+            <h2 class="title">Crear mash-up</h2>
+            <div class="input-group form-group-no-border input-lg">
+              <input type="text" class="form-control" placeholder="Nombre del mash-up" id="name" name="name" [(ngModel)]="mash.name">
+            </div>
+            <div class="input-group form-group-no-border input-xl">
+              <select class="form-control text-white" id="instrument_id" name="instrument_id" [(ngModel)]="mash.snippet_id">
+                <option selected>Snippet inicial</option>
+                <ng-container *ngFor="let snippet of snippets" class="form-group">
+                  <option value="{{snippet.id}}">{{snippet.name}}</option>
+                </ng-container>
+              </select>
+            </div>
+            <div class="input-group form-group-no-border input-lg">
+              <input type="number" class="form-control" placeholder="BPM" id="bpm" name="bpm" [(ngModel)]="mash.bpm" min="40" max="300"
+                step="1">
+            </div>
+            <div class="input-group form-group-no-border input-xl">
+              <select class="form-control text-white" id="key" name="key" [(ngModel)]="mash.key">
+                <option selected>Escala</option>
+                <option value="Do">Do mayor</option>
+                <option value="Re">Re mayor</option>
+                <option value="Mi">Mi mayor</option>
+                <option value="Fa">Fa mayor</option>
+                <option value="Sol">Sol mayor</option>
+                <option value="La">La mayor</option>
+                <option value="Si">Si mayor</option>
+              </select>
+            </div>
+            <div class="input-group form-group-no-border input-xl">
+              <select class="form-control text-white" id="metre" name="metre" [(ngModel)]="mash.metre">
+                <option selected>Métrica</option>
+                <option value="3/4">3/4</option>
+                <option value="4/4">4/4</option>
+                <option value="5/4">5/4</option>
+                <option value="6/8">6/8</option>
+                <option value="7/8">7/8</option>
+              </select>
+            </div>
+            <div class="input-group form-group-no-border input-lg">                
+              <input type="datetime-local" class="form-control text-white" id="start_datetime" name="start_datetime" [(ngModel)]="mash.start_datetime" required>
+            </div>
+            <div class="input-group form-group-no-border input-lg">
+              <input type="number" class="form-control" placeholder="Horas disponibles por ronda" id="quantum" name="quantum" [(ngModel)]="mash.quantum" min="1" max="168" step="1">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-3">
+              <a href="#pablo" class="btn btn-danger btn-round btn-lg btn-block">Cancelar</a>
+            </div>
+            <div class="col-md-3">
+              <a href="#pablo" class="btn btn-primary btn-round btn-lg btn-block">Aceptar</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

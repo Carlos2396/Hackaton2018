@@ -3,8 +3,7 @@ import { Round } from "./round.model";
 
 export class Mash {
     constructor(
-        public updated_at: Date,
-        public created_at: Date,
+        
         public name: string,
         public user_id: number,
         public start_datetime: Date,
@@ -12,6 +11,8 @@ export class Mash {
         public key: string,
         public bpm: string,
         public metre: string,
+        public updated_at?: Date,
+        public created_at?: Date,
         public user?: User,
         public users?: User[],
         public rounds?: Round[],

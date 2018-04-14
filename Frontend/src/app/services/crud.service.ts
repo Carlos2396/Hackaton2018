@@ -9,15 +9,15 @@ export class CrudService {
   URL: string;
   headers: HttpHeaders;
   models = {
-      USER: "users",
-      MASH: "mashes",
-      MASH_USER: "mash_user",
-      SNIPPET: "snippets",
-      ROUND_USER: "round_user",
-      ROUND: "rounds",
-      INSTRUMENT: "instruments",
-      ROUND_SNIPET: "round_snipet"
-  };
+    USER: "users",
+    MASH: "mashes",
+    MASH_USER: "mash_user",
+    SNIPPET: "snippets",
+    ROUND_USER: "round_user",
+    ROUND: "rounds",
+    INSTRUMENT: "instruments",
+    ROUND_SNIPPET: "round_snippet"
+};
 
   constructor(private auth: AuthService, private http: HttpClient) { 
     this.URL = 'http://localhost:8000/api';

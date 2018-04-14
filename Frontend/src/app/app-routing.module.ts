@@ -6,10 +6,11 @@ import { AuthGuard } from './guards/auth.guard';
 import { AppComponent } from './app.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { LoginComponent } from './components/authentication/login/login.component';
-import { CreateSnippetComponent } from './components/snippet/create-snippet/create-snippet.component';
+import { SnippetCreateComponent } from './components/snippet/snippet-create/snippet-create.component';
 import { LogoutComponent } from './components/authentication/logout/logout.component';
 import { UserCreateComponent } from './components/user/user-create/user-create.component';
 import { MashRetrieveComponent } from './components/mash/mash-retrieve/mash-retrieve.component';
+import { MashCreateComponent } from './components/mash/mash-create/mash-create.component';
 
 const routes: Routes = [
 
@@ -24,9 +25,11 @@ const routes: Routes = [
 
     //Mash
     { path: 'mash/:id', component:MashRetrieveComponent, canActivate: [AuthGuard]},
+    { path: 'mash/create', component:MashCreateComponent, canActivate: [AuthGuard]},
 
     { path:'', redirectTo:'login', pathMatch: 'full'},
     { path: '**', redirectTo: '' }
+
   ];
   
   @NgModule({

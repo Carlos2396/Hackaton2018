@@ -11,13 +11,14 @@ import { CrudService } from './services/crud.service';
 
 //Components imports
 import { AppComponent } from './app.component';
-import { CreateSnippetComponent } from './components/snippet/create-snippet/create-snippet.component';
+import { SnippetCreateComponent } from './components/snippet/snippet-create/snippet-create.component';
 import { LoginComponent } from './components/authentication/login/login.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LogoutComponent } from './components/authentication/logout/logout.component';
 import { UserCreateComponent } from './components/user/user-create/user-create.component';
 import { MashRetrieveComponent } from './components/mash/mash-retrieve/mash-retrieve.component';
+import { MashCreateComponent } from './components/mash/mash-create/mash-create.component';
 import { MashListComponent } from './components/mash/mash-list/mash-list.component';
 
 
@@ -25,13 +26,14 @@ import { MashListComponent } from './components/mash/mash-list/mash-list.compone
 @NgModule({
   declarations: [
     AppComponent,
-    CreateSnippetComponent,
+    SnippetCreateComponent,
     LoginComponent,
     LandingComponent,
     NavbarComponent,
     LogoutComponent,
     UserCreateComponent,
     MashRetrieveComponent,
+    MashCreateComponent,
     MashListComponent
   ],
   imports: [
