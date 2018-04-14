@@ -18,7 +18,7 @@ export class MashSnippetCreateComponent implements OnInit {
   snippet_id: number;
   start_time: number;
 
-  constructor(private auth:AuthService, private route:ActivatedRoute, private router:Router) { }
+  constructor(private crud:CrudService, private auth:AuthService, private route:ActivatedRoute, private router:Router) { }
 
   ngOnInit() {
     this.round_id = this.route.snapshot.params.round_id;
@@ -32,21 +32,36 @@ export class MashSnippetCreateComponent implements OnInit {
         start_time: this.start_time,
         id: null
       }
+      this.crud.create(this.crud.models.ROUND_SNIPPET, body)
+      .subscribe(
+        (res:any)=>{
+          this.router.navigate(['mash']);
+        },
+        (err:HttpErrorResponse) => {
+          console.log(err);
+          if(err.error){
+            this.message = err.error.message;
+          }
+          else{
+            this.message = err.error.errors[0].message;
+          }
+        }
+      )
     }
     return false;
   }
 
   validate(){
 
-    if(!this.mash.round_id){
+    if(!this.round_id){
       this.message = 'No hay una ronda seleccionada';
       return false;
     }
-    if(!this.mash.snippet_id){
+    if(!this.snippet_id){
       this.message = 'Debes escoger un snippet.';
       return false;
     }
-    if(!this.mash.start_time){
+    if(!this.start_time){
       this.message = 'Debes escoger una cantidad de segundos antes de que empiece tu snippet.';
       return false;
     }
