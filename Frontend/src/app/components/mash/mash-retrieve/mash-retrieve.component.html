@@ -17,6 +17,19 @@
                         </button>
                     </div>
                 </div>
+                <div class="alert alert-success" role="alert" *ngIf="successMessage != ''">
+                        <div class="container">
+                            <div class="alert-icon">
+                                <i class="now-ui-icons objects_support-17"></i>
+                            </div>
+                            <strong>{{message}}</strong> 
+                            <button type="button" class="close" (click)="removeMessage()">
+                                <span aria-hidden="true">
+                                    <i class="now-ui-icons ui-1_simple-remove"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
                 <h3 class="title">{{mash.name}}</h3>
                     <div class="row">
                         <div class="col-md-4 content-center">
@@ -45,7 +58,7 @@
                         </button>
                     </div>
                     <div class="col-md-4 content-center">
-                            <button class="btn btn-info btn-round" type="button">
+                            <button class="btn btn-info btn-round" type="button" (click)="createMashUser()">
                                     <i class="now-ui-icons ui-2_like"></i>
                                 </button>
                     </div>
