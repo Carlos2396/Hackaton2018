@@ -48,13 +48,11 @@ export class MashRetrieveComponent implements OnInit {
         this.rounds = this.mash.rounds;
         this.roundCount = this.rounds.length;
       },
-      (err:HttpErrorResponse) => {
-        if(err.error){
-          this.message = err.error.message;
-        }
-        else{
-          this.message = err.error.errors[0].message;
-        }
+      err => {
+        console.log(err);
+        Object.values(err.error).forEach( error => {
+          this.message = error[0];
+        });
       }
     )
   }

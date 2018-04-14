@@ -33,14 +33,11 @@ export class SnippetCreateComponent implements OnInit {
           this.snippet = res;
           this.router.navigate(['mashes']);
         },
-        (err:HttpErrorResponse) => {
+        err => {
           console.log(err);
-          if(err.error){
-            this.message = err.error.message;
-          }
-          else{
-            this.message = err.error.errors[0].message;
-          }
+          Object.values(err.error).forEach( error => {
+            this.message = error[0];
+          });
         }
       )
     }
