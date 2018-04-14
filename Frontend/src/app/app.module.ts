@@ -21,6 +21,7 @@ import { MashRetrieveComponent } from './components/mash/mash-retrieve/mash-retr
 import { MashCreateComponent } from './components/mash/mash-create/mash-create.component';
 import { MashListComponent } from './components/mash/mash-list/mash-list.component';
 import { MashSnippetCreateComponent } from './components/mash-snippet/mash-snippet-create/mash-snippet-create.component';
+import { SnippetListComponent } from './components/snippet/snippet-list/snippet-list.component';
 
 
 
@@ -36,7 +37,8 @@ import { MashSnippetCreateComponent } from './components/mash-snippet/mash-snipp
     MashRetrieveComponent,
     MashCreateComponent,
     MashListComponent,
-    MashSnippetCreateComponent
+    MashSnippetCreateComponent,
+    SnippetListComponent
   ],
   imports: [
     BrowserModule,

@@ -12,14 +12,13 @@
             <div class="input-group form-group-no-border input-xl">
               <select class="form-control text-white" id="instrument_id" name="instrument_id" [(ngModel)]="mash.snippet_id">
                 <option selected>Snippet inicial</option>
-                <ng-container *ngFor="let snippet of snippets" class="form-group">
+                <ng-container *ngFor="let snippet of user.snippets" class="form-group">
                   <option value="{{snippet.id}}">{{snippet.name}}</option>
                 </ng-container>
               </select>
             </div>
             <div class="input-group form-group-no-border input-lg">
-              <input type="number" class="form-control" placeholder="BPM" id="bpm" name="bpm" [(ngModel)]="mash.bpm" min="40" max="300"
-                step="1">
+              <input type="number" class="form-control" placeholder="BPM" id="bpm" name="bpm" [(ngModel)]="mash.bpm" min="40" max="300" step="5">
             </div>
             <div class="input-group form-group-no-border input-xl">
               <select class="form-control text-white" id="key" name="key" [(ngModel)]="mash.key">

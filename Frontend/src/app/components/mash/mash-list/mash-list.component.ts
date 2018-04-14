@@ -61,7 +61,7 @@ export class MashListComponent implements OnInit {
     .subscribe(
       (res)=>{
         console.log(res);
-        this.successMessage = 'Le diste like sin errores'
+        this.successMessage = 'Bien hecho.'
       },
       (err:HttpErrorResponse) => {
         if(err.error){

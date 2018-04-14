@@ -1,0 +1,37 @@
+<div class="page-header" filter-color="orange">
+  <div class="page-header-image" style="background-image:url(../assets/img/backgrounNegro.jpg)"></div>
+
+  <div class="container">
+    <div class="col-md-12 content-center">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-login card-plain">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title ">Tus snippets</h4>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class=" text-primary">
+                    <th> Nombre</th>
+                    <th> Instrumento</th>
+                    <th> Tipo </th>
+                    <th> Creado </th>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let snippet of snippets">
+                      <td>{{snippet.name}}</td>
+                      <td>{{snippet.instrument.name}}</td>
+                      <td>{{snippet.instrument.type}}</td>
+                      <td>{{snippet.created_at | date}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

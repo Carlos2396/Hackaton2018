@@ -13,35 +13,38 @@ import { MashRetrieveComponent } from './components/mash/mash-retrieve/mash-retr
 import { MashCreateComponent } from './components/mash/mash-create/mash-create.component';
 import { MashSnippetCreateComponent } from './components/mash-snippet/mash-snippet-create/mash-snippet-create.component';
 import { MashListComponent } from './components/mash/mash-list/mash-list.component';
+import { SnippetListComponent } from './components/snippet/snippet-list/snippet-list.component';
 
 const routes: Routes = [
 
-    // General
-    { path:'login', component: LoginComponent},
-    { path: 'register', component: UserCreateComponent},
-    { path: 'logout', component: LogoutComponent, canActivate: [AuthGuard]},
+  // General
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: UserCreateComponent },
+  { path: 'logout', component: LogoutComponent, canActivate: [AuthGuard] },
 
 
-    //Snippets
-    { path:'snippets/create', component: SnippetCreateComponent, canActivate: [AuthGuard]},
 
-    //Mash
+  //Snippets
+  { path: 'snippets/create', component: SnippetCreateComponent, canActivate: [AuthGuard] },
+  { path: 'snippets', component: SnippetListComponent, canActivate: [AuthGuard] },
 
-    { path: 'mash/create', component:MashCreateComponent, canActivate: [AuthGuard]},
-    { path: 'mash', component:MashListComponent, canActivate: [AuthGuard] },
-    { path: 'mash/:id', component:MashRetrieveComponent, canActivate: [AuthGuard]},
+  //Mash
 
-    //Mash-snippet
-    { path: 'mash/:route_id/snippet', component:MashSnippetCreateComponent, canActivate: [AuthGuard]},
+  { path: 'mash/create', component: MashCreateComponent, canActivate: [AuthGuard] },
+  { path: 'mash', component: MashListComponent, canActivate: [AuthGuard] },
+  { path: 'mash/:id', component: MashRetrieveComponent, canActivate: [AuthGuard] },
 
-    { path:'', redirectTo:'login', pathMatch: 'full'},
-    { path: '**', redirectTo: '' }
+  //Mash-snippet
+  { path: 'mash/:route_id/snippet', component: MashSnippetCreateComponent, canActivate: [AuthGuard] },
 
-  ];
-  
-  @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule],
-    providers: [AuthGuard]
-  })
-  export class AppRoutingModule { }
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '**', redirectTo: '' }
+
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
+  providers: [AuthGuard]
+})
+export class AppRoutingModule { }
