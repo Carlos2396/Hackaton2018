@@ -17,6 +17,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LogoutComponent } from './components/authentication/logout/logout.component';
 import { UserCreateComponent } from './components/user/user-create/user-create.component';
+import { MashRetrieveComponent } from './components/mash/mash-retrieve/mash-retrieve.component';
 
 
 
@@ -28,7 +29,8 @@ import { UserCreateComponent } from './components/user/user-create/user-create.c
     LandingComponent,
     NavbarComponent,
     LogoutComponent,
-    UserCreateComponent
+    UserCreateComponent,
+    MashRetrieveComponent
   ],
   imports: [
     BrowserModule,

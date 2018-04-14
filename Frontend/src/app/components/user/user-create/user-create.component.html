@@ -10,7 +10,7 @@
                       <i class="now-ui-icons ui-2_like"></i>
                   </div>
                   <strong>{{successMessage}}</strong> 
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <button type="button" class="close" (click)="removeMessage()">
                       <span aria-hidden="true">
                           <i class="now-ui-icons ui-1_simple-remove"></i>
                       </span>
@@ -23,7 +23,7 @@
                       <i class="now-ui-icons objects_support-17"></i>
                   </div>
                   <strong>{{errorMessage}}</strong> 
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <button type="button" class="close" (click)="removeMessage()">
                       <span aria-hidden="true">
                           <i class="now-ui-icons ui-1_simple-remove"></i>
                       </span>

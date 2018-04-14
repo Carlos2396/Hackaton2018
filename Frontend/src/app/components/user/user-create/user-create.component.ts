@@ -67,7 +67,7 @@ export class UserCreateComponent implements OnInit {
         !this.user.name ||  
         !this.user.password || 
         !this.password2) {
-      this.errorMessage = 'Debes introducir tu matrícula, nombre, carrera o departamento, contraseña y la confirmación de la misma.';
+      this.errorMessage = 'Debes introducir todos los campos.';
       return false;
     }
     else {
@@ -88,4 +88,10 @@ export class UserCreateComponent implements OnInit {
       return false;
     }
   }
+
+  removeMessage(){
+    this.errorMessage = '';
+    this.successMessage = '';
+  }
+
 }
