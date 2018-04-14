@@ -16,13 +16,18 @@ class MashController extends Controller
      */
     public function index()
     {
-        return response(
-        Mash::with([
+        $mashes = Mash::with([
             'user',
             'users',
             'rounds',
             'snippet'
-        ])->get(), 200);
+        ])->get();
+
+        foreach ($mashes as $mash) {
+            $mash->likesNumber = sizeof($mash->users);
+        }
+
+        return response($mashes->sortBy('likesCount'), 200);
     }
 
     /**
