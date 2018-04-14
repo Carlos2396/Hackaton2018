@@ -6,6 +6,8 @@ use App\Snippet;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
 
 class SnippetController extends Controller
 {
@@ -37,20 +39,26 @@ class SnippetController extends Controller
         $validator = Validator::make($request->all(), [
             'user_id' => 'required|integer|min:1',
             'instrument_id' => 'required|integer|min:1',
-            'name' => 'required|max:100'
+            'name' => 'required|max:100',            
+            'file' => 'required'
         ]);
 
         if($validator->fails()){
-            return response($validator->errors(), 400);
+            return redirect('http://localhost:4200');
         }
 
         $snippet = Snippet::create([
             'name' => $request->name,
             'user_id' => $request->user_id,
-            'instrument_id' => $request->instrument_id
+            'instrument_id' => $request->instrument_id,
+            'path' => ''
         ]);
+        $file = $request->file('file');
+        $ext = $file->extension();
+        $snippet->path = $request->file('file')->storeAs('snippets');
+        $snippet->save();
 
-        return response($snippet, 201);
+        return redirect('http://localhost:4200');
     }
 
     /**
