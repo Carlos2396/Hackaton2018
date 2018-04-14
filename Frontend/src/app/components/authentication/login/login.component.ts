@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if(this.auth.isLoggedIn()){
-      this.router.navigate(['home'])
+      this.router.navigate(['mash/1'])
     }
 
     this.email = '';
@@ -31,12 +31,16 @@ export class LoginComponent implements OnInit {
       this.auth.login(this.email, this.password)
       .subscribe(
         res => {
+          console.log("Success.");
           this.auth.setSession(res);
-          this.router.navigate(['home']);
+          console.log(this.auth.isLoggedIn());
+          this.router.navigate(['mash/1']);
         },
         err => {
-          this.errorMessage = err.error.message;
-          this.password = '';
+          console.log(err);
+          Object.values(err.error).forEach( error => {
+            this.errorMessage = error[0];
+          });
         }
       );
     }

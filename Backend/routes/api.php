@@ -22,7 +22,7 @@ Route::get('', function() {
     return $request->user();
 });*/
 
-Route::group(['middleware' => ['cors'], 'as' => 'api', 'namespace' => 'API'], function () {
+Route::group(['as' => 'api', 'namespace' => 'API'], function () {
     Route::post('login', 'AuthController@login')->name('login');
 
     // Users routes
