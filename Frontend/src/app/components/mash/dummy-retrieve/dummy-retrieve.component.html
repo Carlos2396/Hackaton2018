@@ -1,0 +1,271 @@
+<div class="page-header clear-filter " filter-color="black">
+  <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/backgroundNegro.jpg');">
+  </div>
+  <div class="container">
+      <div class="col-md-4 content-center">
+          <div class="card card-login card-plain">
+              <div class="alert alert-danger" role="alert" *ngIf="message != ''">
+                  <div class="container">
+                      <div class="alert-icon">
+                          <i class="now-ui-icons objects_support-17"></i>
+                      </div>
+                      <strong>{{message}}</strong> 
+                      <button type="button" class="close" (click)="removeMessage()">
+                          <span aria-hidden="true">
+                              <i class="now-ui-icons ui-1_simple-remove"></i>
+                          </span>
+                      </button>
+                  </div>
+              </div>
+              <div class="alert alert-success" role="alert" *ngIf="successMessage != ''">
+                      <div class="container">
+                          <div class="alert-icon">
+                              <i class="now-ui-icons objects_support-17"></i>
+                          </div>
+                          <strong>{{message}}</strong> 
+                          <button type="button" class="close" (click)="removeMessage()">
+                              <span aria-hidden="true">
+                                  <i class="now-ui-icons ui-1_simple-remove"></i>
+                              </span>
+                          </button>
+                      </div>
+                  </div>
+              <h3 class="title">Incredible mashup</h3>
+                  <div class="row">
+                      <div class="col-md-4 content-center">
+                          <h4>Ronda: 5 </h4>
+                      </div>
+                      <div class="col-md-4 content-center">
+                          <h4>Bpm: 120 </h4>
+                      </div>
+                      <div class="col-md-4 content-center">
+                          <h4>Clave: Do </h4>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-6 content-center">
+                          <h4>Métrica: 3/4</h4>
+                      </div>
+                      <div class="col-md-6 content-center">
+                          <h4>Likes: 2 </h4>
+                      </div>
+                  </div>   
+                                    
+              <div class="row">
+                  <div class="col-md-4 content-center">
+                      <button class="btn btn-primary btn-round" type="button" (click)="playAll()">
+                          <i class="now-ui-icons media-1_button-play"></i> Play
+                      </button>
+                  </div>
+                  <div class="col-md-4 content-center">
+                          <button class="btn btn-info btn-round" type="button" >
+                                  <i class="now-ui-icons ui-2_like"></i>
+                              </button>
+                  </div>
+                  <div class="col-md-4 content-center">
+                      <button class="btn btn-primary">Agregar mi snippet</button>
+                  </div>
+              </div>
+              
+          </div>
+      </div>
+  </div>
+</div>
+<div class="page-header clear-filter " filter-color="black">
+    <div class="page-header-image" data-parallax="true" style="background-image: url('./assets/img/backgroundNegro.jpg');">
+    </div>
+    <div class="container">
+        <div class="col-md-4 content-center">
+            <div class="card card-login card-plain">
+
+                <div class="row">
+                    <div class="col-md-12 content-center">
+                            <div class="row">
+                                <div class="col-md-12" >
+                                    <div class="card card-login card-plain">
+                                        <div class="card-header card-header-primary">
+                                            <h4 class="card-title ">Snipets</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead class=" text-primary">
+                                                        <th>
+                                                            Instrumento
+                                                        </th>
+                                                        <th>
+                                                            Usuario
+                                                        </th>
+                                                        <th>
+                                                            
+                                                        </th>
+                                                        <th>
+                                                        
+                                                        </th>
+                                                        <th>
+                                                        
+                                                        </th>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                Bajo
+                                                            </td>
+                                                            <td>
+                                                                Angel
+                                                            </td>
+                                                            <td>
+                                                                04/14/18
+                                                            </td>
+                                                            <td>
+                                                                    <button class="btn btn-primary btn-round" type="button" (click)="playMusic()">
+                                                                            <i class="now-ui-icons media-1_button-play"></i>
+                                                                        </button>
+                                                            </td>
+                                                            <td>
+                                                                    <button class="btn btn-primary btn-round" type="button">
+                                                                            <i class="now-ui-icons arrows-1_cloud-download-93"></i>
+                                                                        </button>
+                                                            </td>
+                                                            <td>
+                                                                    <button class="btn btn-info btn-round" type="button">
+                                                                            <i class="now-ui-icons ui-2_like"></i>
+                                                                        </button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                          <td>
+                                                              Bateria
+                                                          </td>
+                                                          <td>
+                                                              Carlos
+                                                          </td>
+                                                          <td>
+                                                              04/14/18
+                                                          </td>
+                                                          <td>
+                                                                  <button class="btn btn-primary btn-round" type="button" (click)="playMusic2()">
+                                                                          <i class="now-ui-icons media-1_button-play"></i>
+                                                                      </button>
+                                                          </td>
+                                                          <td>
+                                                                  <button class="btn btn-primary btn-round" type="button">
+                                                                          <i class="now-ui-icons arrows-1_cloud-download-93"></i>
+                                                                      </button>
+                                                          </td>
+                                                          <td>
+                                                                  <button class="btn btn-info btn-round" type="button">
+                                                                          <i class="now-ui-icons ui-2_like"></i>
+                                                                      </button>
+                                                          </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                            Guitarra
+                                                        </td>
+                                                        <td>
+                                                            Mony
+                                                        </td>
+                                                        <td>
+                                                            04/14/18
+                                                        </td>
+                                                        <td>
+                                                                <button class="btn btn-primary btn-round" type="button" (click)="playMusic3()">
+                                                                        <i class="now-ui-icons media-1_button-play"></i>
+                                                                    </button>
+                                                        </td>
+                                                        <td>
+                                                                <button class="btn btn-primary btn-round" type="button">
+                                                                        <i class="now-ui-icons arrows-1_cloud-download-93"></i>
+                                                                    </button>
+                                                        </td>
+                                                        <td>
+                                                                <button class="btn btn-info btn-round" type="button">
+                                                                        <i class="now-ui-icons ui-2_like"></i>
+                                                                    </button>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                            Trompeta
+                                                        </td>
+                                                        <td>
+                                                            Fanny
+                                                        </td>
+                                                        <td>
+                                                            04/14/18
+                                                        </td>
+                                                        <td>
+                                                                <button class="btn btn-primary btn-round" type="button" (click)="playMusic4()">
+                                                                        <i class="now-ui-icons media-1_button-play"></i>
+                                                                    </button>
+                                                        </td>
+                                                        <td>
+                                                                <button class="btn btn-primary btn-round" type="button">
+                                                                        <i class="now-ui-icons arrows-1_cloud-download-93"></i>
+                                                                    </button>
+                                                        </td>
+                                                        <td>
+                                                                <button class="btn btn-info btn-round" type="button">
+                                                                        <i class="now-ui-icons ui-2_like"></i>
+                                                                    </button>
+                                                        </td>
+                                                       </tr>
+                                                       <tr>
+                                                        <td>
+                                                            Violines
+                                                        </td>
+                                                        <td>
+                                                            Angel
+                                                        </td>
+                                                        <td>
+                                                            04/14/18
+                                                        </td>
+                                                        <td>
+                                                                <button class="btn btn-primary btn-round" type="button" (click)="playAll()">
+                                                                        <i class="now-ui-icons media-1_button-play"></i>
+                                                                    </button>
+                                                        </td>
+                                                        <td>
+                                                                <button class="btn btn-primary btn-round" type="button">
+                                                                        <i class="now-ui-icons arrows-1_cloud-download-93"></i>
+                                                                    </button>
+                                                        </td>
+                                                        <td>
+                                                                <button class="btn btn-info btn-round" type="button">
+                                                                        <i class="now-ui-icons ui-2_like"></i>
+                                                                    </button>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+
+          </div>
+        </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

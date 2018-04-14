@@ -17,6 +17,7 @@ export class MashCreateComponent implements OnInit {
   message: string;
   user: User;
   mash: Mash;
+  snippets:Snippet[];
 
   constructor(private crud:CrudService, private auth:AuthService, private router:Router) { }
 
@@ -29,6 +30,7 @@ export class MashCreateComponent implements OnInit {
     .subscribe(
       (res: User) => {
         this.user = res;
+        this.snippets = res.snippets;
       },
       err => {
         Object.values(err.error).forEach( error => {

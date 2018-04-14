@@ -9,18 +9,27 @@
                         <div class="alert-icon">
                             <i class="now-ui-icons objects_support-17"></i>
                         </div>
-                        <strong>{{message}}</strong>
-                        <button type="button" class="close" (click)="removeMessage()">
-                            <span aria-hidden="true">
-                                <i class="now-ui-icons ui-1_simple-remove"></i>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-                <div class="alert alert-success" role="alert" *ngIf="successMessage != ''">
-                    <div class="container">
-                        <div class="alert-icon">
-                            <i class="now-ui-icons objects_support-17"></i>
+                        <div class="alert alert-success" role="alert" *ngIf="successMessage != ''">
+                                <div class="container">
+                                    <div class="alert-icon">
+                                        <i class="now-ui-icons objects_support-17"></i>
+                                    </div>
+                                    <strong>{{message}}</strong> 
+                                    <button type="button" class="close" (click)="removeMessage()">
+                                        <span aria-hidden="true">
+                                            <i class="now-ui-icons ui-1_simple-remove"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                <h3 class="title">Mashes destacados</h3>
+                    <div class="row" >
+                        <div class="col-md-4 content-center" *ngFor="let mashDest of mashesDest">
+                            <button class="btn btn-primary btn-round" type="button" (click)="playAll()">
+                                <i class="now-ui-icons media-1_button-play"></i>
+                            </button>
+                            <a href="mash/{{mashDest.id}}"><h4>{{mashDest.name}}</h4></a>
+                            <h4>Ronda {{mashDest.rounds.length}}</h4>
                         </div>
                         <strong>{{message}}</strong>
                         <button type="button" class="close" (click)="removeMessage()">
@@ -84,7 +93,9 @@
                                                     {{mashi.rounds.length}}
                                                 </td>
                                                 <td>
-                                                    <button class="btn btn-primary btn-round" type="button"><i class="now-ui-icons media-1_button-play"></i></button>
+                                                        <button class="btn btn-primary btn-round" type="button" (click)="playAll()">
+                                                                <i class="now-ui-icons media-1_button-play"></i>
+                                                            </button>
                                                 </td>
                                                 <td>
                                                     <button class="btn btn-primary btn-round" type="button"><i class="now-ui-icons arrows-1_cloud-download-93"></i></button>

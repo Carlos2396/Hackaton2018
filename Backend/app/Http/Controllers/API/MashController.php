@@ -62,6 +62,8 @@ class MashController extends Controller
             return response(["message" => "The mash metre is not valid."], 400);
         }
 
+        $datetime = str_replace("T", " ", $request->datetime);
+
         $mash = Mash::create([
             'name' => $request->name,
             'start_datetime' => $request->start_datetime,

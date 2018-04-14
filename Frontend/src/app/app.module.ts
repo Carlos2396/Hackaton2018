@@ -22,6 +22,7 @@ import { MashCreateComponent } from './components/mash/mash-create/mash-create.c
 import { MashListComponent } from './components/mash/mash-list/mash-list.component';
 import { MashSnippetCreateComponent } from './components/mash-snippet/mash-snippet-create/mash-snippet-create.component';
 import { SnippetListComponent } from './components/snippet/snippet-list/snippet-list.component';
+import { DummyRetrieveComponent } from './components/mash/dummy-retrieve/dummy-retrieve.component';
 
 
 
@@ -38,7 +39,8 @@ import { SnippetListComponent } from './components/snippet/snippet-list/snippet-
     MashCreateComponent,
     MashListComponent,
     MashSnippetCreateComponent,
-    SnippetListComponent
+    SnippetListComponent,
+    DummyRetrieveComponent
   ],
   imports: [
     BrowserModule,

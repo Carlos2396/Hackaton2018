@@ -19,7 +19,8 @@ export class SnippetCreateComponent implements OnInit {
   snippet: Snippet;
   instruments: Instrument;
 
-  constructor(private crud: CrudService, private auth: AuthService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private crud: CrudService, private auth: AuthService, private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
     this.snippet = new Snippet(null, null, null, null, null, null, null, null, null);

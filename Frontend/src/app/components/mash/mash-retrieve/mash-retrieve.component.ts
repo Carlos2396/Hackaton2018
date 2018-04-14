@@ -1,11 +1,11 @@
-import { Component, OnInit, group } from '@angular/core';
-import * as Pz from "pizzicato";
+import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../../../services/crud.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { User } from '../../../models/user.model';
 import { Mash } from '../../../models/mash.model';
 import { Round } from '../../../models/round.model';
 import { Snippet } from '../../../models/snippet.model';
+import * as Pz from "pizzicato";
 
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
@@ -122,21 +122,28 @@ export class MashRetrieveComponent implements OnInit {
   }
 
   addSnippet(){
-    this.router.navigate(['mash/'+this.mash.rounds[length].id + '/snippet']);
+    this.router.navigate(['mash/'+this.mash.rounds[this.mash.rounds.length-1].id + '/snippet']);
   }
 
   playAll(){
     
-    console.log("Playing");
-    var audio1 = new Pz.Sound('../../../assets/music/bensound-cute.mp3', function(){
-      var audio2 = new Pz.Sound('../../../../../assets/music/bensound-jazzyfrenchy.mp3', function(){
-        var group = new Pz.Group();
+    var audio1 = new Pz.Sound('../../../assets/music/Bajo.mp3', function(){
+      var audio2 = new Pz.Sound('../../../../../assets/music/Bateria.mp3', function(){
+        var audio3 = new Pz.Sound('../../../../../assets/music/Guitarra.mp3', function(){
+          var audio4 = new Pz.Sound('../../../../../assets/music/Trompeta.mp3', function(){
+            var audio5 = new Pz.Sound('../../../../../assets/music/Violines.mp3', function(){
+              var group = new Pz.Group();
         
-        group.addSound(audio1);
-        group.addSound(audio2);
-        group.play();
+              group.addSound(audio1);
+              group.addSound(audio2);
+              group.addSound(audio3);
+              group.addSound(audio4);
+              group.addSound(audio5);
+              group.play();
+            });
+          });
+        });
       });
     });
-    
   }
 }

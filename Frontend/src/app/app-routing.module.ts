@@ -14,6 +14,7 @@ import { MashCreateComponent } from './components/mash/mash-create/mash-create.c
 import { MashSnippetCreateComponent } from './components/mash-snippet/mash-snippet-create/mash-snippet-create.component';
 import { MashListComponent } from './components/mash/mash-list/mash-list.component';
 import { SnippetListComponent } from './components/snippet/snippet-list/snippet-list.component';
+import { DummyRetrieveComponent } from './components/mash/dummy-retrieve/dummy-retrieve.component';
 
 const routes: Routes = [
 
@@ -29,6 +30,10 @@ const routes: Routes = [
   { path: 'snippets', component: SnippetListComponent, canActivate: [AuthGuard] },
 
   //Mash
+    { path: 'mash/create', component:MashCreateComponent, canActivate: [AuthGuard]},
+    { path: 'mash', component:MashListComponent, canActivate: [AuthGuard] },
+    { path: 'mash/1', component:DummyRetrieveComponent, canActivate: [AuthGuard] },
+    { path: 'mash/:id', component:MashRetrieveComponent, canActivate: [AuthGuard]},
 
   { path: 'mash/create', component: MashCreateComponent, canActivate: [AuthGuard] },
   { path: 'mash', component: MashListComponent, canActivate: [AuthGuard] },
