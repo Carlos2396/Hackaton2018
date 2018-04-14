@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,13 @@ Route::get('', function() {
     return "Mashup Music API";
 });
 
-Route::group(['as' => 'api', 'namespace' => 'API'], function () {
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});*/
+
+Route::group(['middleware' => ['cors'], 'as' => 'api', 'namespace' => 'API'], function () {
+    Route::post('login', 'AuthController@login')->name('login');
+
     // Users routes
     Route::get('users', 'UserController@index')->name('users');
     Route::get('users/{user}', 'UserController@show')->name('users.show');
@@ -53,7 +60,3 @@ Route::group(['as' => 'api', 'namespace' => 'API'], function () {
     Route::put('mashes/{mash}', 'MashController@update')->name('mashes.update');
     Route::delete('mashes/{mash}', 'MashController@destroy')->name('mashes.delete');
 });
-
-/*Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});*/

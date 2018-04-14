@@ -48,13 +48,13 @@ class User extends Authenticatable
             ->withPivot('round_id');
     }
 
-    public function voteForSnippet($snippet_id, $round_id){
+    public function likeSnippetInRound($snippet_id, $round_id){
         return $this->likedSnippets()->attach([
             $snippet_id => ["round_id" => $round_id] 
         ]);
     }
 
-    public function unvoteForSnippet($snippet_id, $round_id){
+    public function removeLikeFromSnippet($snippet_id, $round_id){
         return $this->likedSnippets()->detach($snippet_id);
     }
 }
